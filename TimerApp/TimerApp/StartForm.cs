@@ -5,8 +5,10 @@ namespace TimerApp
 {
     public partial class TimerStartForm : Form
     {
-        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Timer timer;  //таймер на секунды по этапам
+        private System.Windows.Forms.Timer fullTimer;  //таймер на полное время
         private int seconds;
+        private int minutes;
         private Queue<int> timeStages;
         private int index = 0;
         public TimerStartForm()
@@ -18,42 +20,69 @@ namespace TimerApp
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000; // Интервал 1 секунда
             timer.Tick += Timer_Tick;
-
+            fullTimer = new System.Windows.Forms.Timer();
+            fullTimer.Interval = 1000; // Интервал 1 секунда
+            fullTimer.Tick += Timer_TickFull;
 
         }
+        private void Timer_TickFull(object sender, EventArgs e)
+        {
+            if (minutes > 0)
+            {
+                minutes--;
+                SetFontValueForFullTimer(new Font("Comic Sans MS", 50, FontStyle.Bold), minutes);
+            }
+        }
+
+
+
         private void Timer_Tick(object sender, EventArgs e) //задание работы таймера
         {
             if (seconds > 0)
             {
                 seconds--;
-                labelTimer.Font = new Font("Comic Sans MS", 90, FontStyle.Bold);
-                labelTimer.Text = seconds.ToString(); // Обновляем текст метки
-                CenterLabelTimer();
+                if (seconds >= 1000 && seconds < 10000) //для 4-х значных значений таймера
+                {
+                    SetFontValueForTimer(new Font("Comic Sans MS", 100, FontStyle.Bold), seconds);
+                }
+                else
+                {
+                    SetFontValueForTimer(new Font("Comic Sans MS", 150, FontStyle.Bold), seconds);
+
+                }
             }
             else
             {
-                timer.Stop();
+                if (timeStages.Count > 0)
+                {
+                    seconds = timeStages.Dequeue();
+                    labelTimer.Text = seconds.ToString(); // Обновляем текст метки
+                    CenterLabelTimer();
+                }
 
+                else
+                {
+                    timer.Stop();
+
+                }
             }
         }
-        private void CenterLabelTimer() //установка места таймера
-        {
-            labelTimer.Location = new Point(this.Width / 2 - labelTimer.Width / 2, (this.Height / 2 - labelTimer.Height / 2) - 50);
-        }
 
 
-        private void DrawButtonImage(PaintEventArgs e, string imagePath, Control button) //назначение картинок для кнопок
+        private void DrawButtonImage(PaintEventArgs e, byte[] imageData, Control button) //назначение картинок для кнопок
         {
-            using (Image image = Image.FromFile(imagePath))
+            using (MemoryStream ms = new MemoryStream(imageData))
             {
-                e.Graphics.DrawImage(image, 0, 0, button.Width, button.Height);
+                using (Image image = Image.FromStream(ms))
+                {
+                    e.Graphics.DrawImage(image, 0, 0, button.Width, button.Height);
+                }
             }
         }
 
-        private void butAddTrainee_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\add_time.png", butAddTrainee);
-        private void butPause_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\pause.png", butPause);
-        private void butPlay_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\play.png", butPlay);
-
+        private void butAddTrainee_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.add_time, butAddTrainee);
+        private void butPause_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.pause, butPause);
+        private void butPlay_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.play, butPlay);
 
 
         private void butAddTrainee_Click(object sender, EventArgs e)
@@ -61,49 +90,98 @@ namespace TimerApp
             AddTraineeForm addTraineeForm = new AddTraineeForm();
             if (addTraineeForm.ShowDialog() == DialogResult.OK)
             {// Ожидаем, пока форма 2 закроется
-                greeting_label.Visible = false;
+                
                 butPause.Visible = true;
                 butPlay.Visible = true;
                 butAddTrainee.Visible = false;
+                pictureBox1.Visible = false;
 
                 Trainee trainee = addTraineeForm.Trainee;
-                timeStages = new Queue<int>();
-                timeStages.Enqueue(trainee.RunUpTime);
-               
-                for(int i = 0; i<trainee.Cycles; i++)
-                {
-                    timeStages.Enqueue(trainee.WorkTime);
-                    timeStages.Enqueue(trainee.RelaxTime);
-                }
-                timeStages.Enqueue(trainee.RestTime);
+                minutes = addTraineeForm.SumSeconds;
+                timeStages = new Queue<int>(); //очередь последовательностей для таймера
 
-                while (timeStages.Count > 0)
+                if (trainee.RunUpTime != 0)
+                {
+                    timeStages.Enqueue(trainee.RunUpTime);
+                }
+                for (int i = 0; i < trainee.Cycles; i++)
+                {
+                    if (trainee.WorkTime != 0)
+                    {
+                        timeStages.Enqueue(trainee.WorkTime);
+                    }
+                    if (trainee.RelaxTime != 0)
+                    {
+                        timeStages.Enqueue(trainee.RelaxTime);
+                    }
+                }
+                if (trainee.RestTime != 0)
+                {
+                    timeStages.Enqueue(trainee.RestTime);
+                }
+                if (timeStages.Count > 0)
                 {
                     seconds = timeStages.Dequeue();
+
                 }
-
-                labelTimer.Font = new Font("Comic Sans MS", 90, FontStyle.Bold);
-                labelTimer.Text = seconds.ToString();
-                CenterLabelTimer();
-                //labelTimer.Text = addTraineeForm.SumSeconds.ToString(); //устанавливаем начальное значение таймера
-                /*Label traineeLabel = new Label();
-                traineeLabel.Location = new Point(30, 30);
-                traineeLabel.AutoSize = true;
-                traineeLabel.Text = addTraineeForm.Trainee.ToString();
-                this.Controls.Add(traineeLabel);*/
-                //timer.Start();
-
+                //установка начального значения для таймера этапов
+                if (seconds >= 1000 && seconds < 10000)
+                {
+                    SetFontValueForTimer(new Font("Comic Sans MS", 100, FontStyle.Bold), seconds);
+                }
+                else
+                {
+                    SetFontValueForTimer(new Font("Comic Sans MS", 150, FontStyle.Bold), seconds);
+                }
+                //установка начального значения для таймера полного
+                SetFontValueForFullTimer(new Font("Comic Sans MS", 50, FontStyle.Bold), minutes);
             }
         }
 
         private void butPause_Click(object sender, EventArgs e)
         {
             timer.Stop();
+            fullTimer.Stop();
+            butAddTrainee.Visible = true;
         }
 
         private void butPlay_Click(object sender, EventArgs e)
         {
             timer.Start();
+            fullTimer.Start();
+        }
+        private void SetFontValueForTimer(Font font, int sec)
+        {
+            labelTimer.Font = font;
+            labelTimer.Text = sec.ToString(); // Обновляем текст метки
+            CenterLabelTimer();
+        }
+        private void SetFontValueForFullTimer(Font font, int totalSeconds)
+        {
+            labelFullTimer.Font = font;
+            int min = totalSeconds / 60;
+            int sec = totalSeconds % 60;
+            labelFullTimer.Text = $"{min:D2}:{sec:D2}"; // Форматирование: MM:SS
+            CenterLabelFullTimer();
+        }
+        private void CenterLabelTimer() //установка места таймера на секунды
+        {
+            labelTimer.Location = new Point(this.Width / 2 - labelTimer.Width / 2, (this.Height / 2 - labelTimer.Height / 2) - 50);
+        }
+        private void CenterLabelFullTimer()
+        {
+            labelFullTimer.Location = new Point(this.Width / 2 - labelFullTimer.Width / 2, (this.Height / 2 - labelFullTimer.Height / 2 - 200));
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            using (MemoryStream ms = new MemoryStream(Properties.Resources.timerApp))
+            {
+                using (Image image = Image.FromStream(ms))
+                {
+                    e.Graphics.DrawImage(image, 0, 0, pictureBox1.Width, pictureBox1.Height);
+                }
+            }
         }
     }
 }

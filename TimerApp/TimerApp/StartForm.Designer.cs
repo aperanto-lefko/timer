@@ -34,11 +34,11 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             butAddTrainee = new Button();
             labelTimer = new Label();
-            panel1 = new Panel();
-            greeting_label = new Label();
+            labelFullTimer = new Label();
+            pictureBox1 = new PictureBox();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -113,29 +113,27 @@
             // labelTimer
             // 
             labelTimer.AutoSize = true;
-            labelTimer.Location = new Point(183, 185);
+            labelTimer.Location = new Point(194, 247);
             labelTimer.Name = "labelTimer";
             labelTimer.Size = new Size(0, 15);
             labelTimer.TabIndex = 2;
             // 
-            // panel1
+            // labelFullTimer
             // 
-            panel1.Controls.Add(greeting_label);
-            panel1.Location = new Point(0, 478);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(384, 100);
-            panel1.TabIndex = 3;
+            labelFullTimer.AutoSize = true;
+            labelFullTimer.Location = new Point(194, 123);
+            labelFullTimer.Name = "labelFullTimer";
+            labelFullTimer.Size = new Size(0, 15);
+            labelFullTimer.TabIndex = 4;
             // 
-            // greeting_label
+            // pictureBox1
             // 
-            greeting_label.Dock = DockStyle.Fill;
-            greeting_label.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            greeting_label.Location = new Point(0, 0);
-            greeting_label.Name = "greeting_label";
-            greeting_label.Size = new Size(384, 100);
-            greeting_label.TabIndex = 0;
-            greeting_label.Text = "Приложение \"Таймер\" для занятия спортом. Чтобы добавить тренировку нажмите значок с часами";
-            greeting_label.TextAlign = ContentAlignment.MiddleCenter;
+            pictureBox1.Location = new Point(27, 131);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(333, 288);
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            pictureBox1.Paint += pictureBox1_Paint;
             // 
             // TimerStartForm
             // 
@@ -143,7 +141,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
             ClientSize = new Size(384, 661);
-            Controls.Add(panel1);
+            Controls.Add(pictureBox1);
+            Controls.Add(labelFullTimer);
             Controls.Add(labelTimer);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
@@ -153,7 +152,7 @@
             Text = "TimerApp";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
-            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -164,9 +163,9 @@
         private TableLayoutPanel tableLayoutPanel2;
         private Button butAddTrainee;
         private Label labelTimer;
-        private Panel panel1;
-        private Label greeting_label;
         private Button butPause;
         private Button butPlay;
+        private Label labelFullTimer;
+        private PictureBox pictureBox1;
     }
 }

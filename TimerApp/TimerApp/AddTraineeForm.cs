@@ -109,42 +109,48 @@ namespace TimerApp
 
 
 
-        private void DrawButtonImage(PaintEventArgs e, string imagePath, Control button) //назначение картинок для кнопок
+        private void DrawButtonImage(PaintEventArgs e, byte[] imageData, Control button) //назначение картинок для кнопок
         {
-            using (Image image = Image.FromFile(imagePath))
+            using (MemoryStream ms = new MemoryStream(imageData))
             {
-                e.Graphics.DrawImage(image, 0, 0, button.Width, button.Height);
+                using (Image image = Image.FromStream(ms))
+                {
+                    e.Graphics.DrawImage(image, 0, 0, button.Width, button.Height);
+                }
             }
         }
 
 
-        private void butMinusRunUp_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\minus.png", butMinusRunUp);
-        private void butPlusRunUp_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\plus.png", butPlusRunUp);
-        private void butMinusWork_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\minus.png", butMinusWork);
-        private void butPlusWork_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\plus.png", butPlusWork);
-        private void butMinusRelax_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\minus.png", butMinusRelax);
-        private void butPlusRelax_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\plus.png", butPlusRelax);
-        private void butMinusRest_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\minus.png", butMinusRest);
-        private void butPlusRest_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\plus.png", butPlusRest);
-        private void butMinusCycle_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\minus.png", butMinusCycle);
-        private void butPlusCycle_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\plus.png", butPlusCycle);
-        private void butConfirm_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, "Resources\\confirm.png", butConfirm);
+        private void butMinusRunUp_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.minus, butMinusRunUp);
+        private void butPlusRunUp_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.plus, butPlusRunUp);
+        private void butMinusWork_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.minus, butMinusWork);
+        private void butPlusWork_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.plus, butPlusWork);
+        private void butMinusRelax_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.minus, butMinusRelax);
+        private void butPlusRelax_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.plus, butPlusRelax);
+        private void butMinusRest_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.minus, butMinusRest);
+        private void butPlusRest_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.plus, butPlusRest);
+        private void butMinusCycle_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.minus, butMinusCycle);
+        private void butPlusCycle_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.plus, butPlusCycle);
+        private void butConfirm_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.confirm, butConfirm);
 
 
-
-        private void DrawPictureBoxImage(PaintEventArgs e, string imagePath, PictureBox pictureBox) //назначение картинок для полей
+        private void DrawPictureBoxImage(PaintEventArgs e, byte[] imageData, PictureBox pictureBox) //назначение картинок для полей
         {
-            using (Image image = Image.FromFile(imagePath))
+            using (MemoryStream ms = new MemoryStream(imageData))
             {
-                e.Graphics.DrawImage(image, 0, 0, pictureBox.Width, pictureBox.Height);
+                using (Image image = Image.FromStream(ms))
+                {
+                    e.Graphics.DrawImage(image, 0, 0, pictureBox.Width, pictureBox.Height);
+                }
             }
         }
-        private void pictureBox1_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, "Resources\\men.png", pictureBox1);
-        private void pictureBox2_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, "Resources\\T.png", pictureBox2);
-        private void pictureBox3_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, "Resources\\barbell.png", pictureBox3);
-        private void pictureBox4_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, "Resources\\relax.png", pictureBox4);
-        private void pictureBox5_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, "Resources\\sofa.png", pictureBox5);
-        private void pictureBox6_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, "Resources\\cycle.png", pictureBox6);
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.men, pictureBox1);
+        private void pictureBox2_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.pen, pictureBox2);
+        private void pictureBox3_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.barbell, pictureBox3);
+        private void pictureBox4_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.relax, pictureBox4);
+        private void pictureBox5_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.sofa, pictureBox5);
+        private void pictureBox6_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.cycle, pictureBox6);
 
         private void butConfirm_Click(object sender, EventArgs e)
         {
