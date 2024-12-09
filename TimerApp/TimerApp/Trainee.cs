@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace TimerApp
 {
-    internal class Trainee
+    public class Trainee
     {
         private string Title {  get; set; }
-        private int Cycles { get; set; }
-        private double RunUpTime { get; set; } //подготовка 
-        private double WorkTime { get; set; } //работа
-        private double RestTime { get; set; } //отдых
-        private double RelaxTime { get; set; } //расслабление 
+        public int Cycles { get; set; }
+        public int RunUpTime { get; set; } //подготовка 
+        public int WorkTime { get; set; } //работа
+        public int RestTime { get; set; } //отдых
+        public int RelaxTime { get; set; } //расслабление 
 
         public Trainee (string Title, int Cycles, int RunUpTime, int WorkTime, int RelaxTime)
         {

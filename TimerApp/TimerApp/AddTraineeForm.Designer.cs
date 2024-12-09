@@ -54,11 +54,17 @@
             panel5 = new Panel();
             restBox = new TextBox();
             rest_label = new Label();
+            pictureBox6 = new PictureBox();
+            butMinusCycle = new Button();
+            butPlusCycle = new Button();
+            panel6 = new Panel();
+            cycleBox = new TextBox();
+            cycle_label = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             AddTraineeLabel = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
             panel2 = new Panel();
-            textBox1 = new TextBox();
+            title_box = new TextBox();
             TraineeTitleLabel = new Label();
             pictureBox2 = new PictureBox();
             tableLayoutPanel1.SuspendLayout();
@@ -70,6 +76,8 @@
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            panel6.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -100,16 +108,20 @@
             tableLayoutPanel1.Controls.Add(butMinusRest, 1, 3);
             tableLayoutPanel1.Controls.Add(butPlusRest, 3, 3);
             tableLayoutPanel1.Controls.Add(panel5, 2, 3);
-            tableLayoutPanel1.Location = new Point(0, 138);
+            tableLayoutPanel1.Controls.Add(pictureBox6, 0, 4);
+            tableLayoutPanel1.Controls.Add(butMinusCycle, 1, 4);
+            tableLayoutPanel1.Controls.Add(butPlusCycle, 3, 4);
+            tableLayoutPanel1.Controls.Add(panel6, 2, 4);
+            tableLayoutPanel1.Location = new Point(0, 113);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 59F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
-            tableLayoutPanel1.Size = new Size(334, 462);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
+            tableLayoutPanel1.Size = new Size(334, 486);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -131,7 +143,7 @@
             timeRun_up_box.MaxLength = 7;
             timeRun_up_box.Name = "timeRun_up_box";
             timeRun_up_box.Size = new Size(77, 30);
-            timeRun_up_box.TabIndex = 1;
+            timeRun_up_box.TabIndex = 3;
             timeRun_up_box.KeyPress += timeRun_up_box_KeyPress;
             // 
             // run_up_label
@@ -153,7 +165,7 @@
             butMinusRunUp.Location = new Point(86, 3);
             butMinusRunUp.Name = "butMinusRunUp";
             butMinusRunUp.Size = new Size(77, 74);
-            butMinusRunUp.TabIndex = 3;
+            butMinusRunUp.TabIndex = 2;
             butMinusRunUp.UseVisualStyleBackColor = false;
             butMinusRunUp.Click += butMinusRunUp_Click;
             butMinusRunUp.Paint += butMinusRunUp_Paint;
@@ -184,10 +196,10 @@
             // 
             butConfirm.BackColor = Color.AntiqueWhite;
             butConfirm.Dock = DockStyle.Fill;
-            butConfirm.Location = new Point(252, 382);
+            butConfirm.Location = new Point(252, 403);
             butConfirm.Name = "butConfirm";
-            butConfirm.Size = new Size(79, 77);
-            butConfirm.TabIndex = 7;
+            butConfirm.Size = new Size(79, 80);
+            butConfirm.TabIndex = 14;
             butConfirm.UseVisualStyleBackColor = false;
             butConfirm.Click += butConfirm_Click;
             butConfirm.Paint += butConfirm_Paint;
@@ -220,7 +232,7 @@
             work_box.MaxLength = 7;
             work_box.Name = "work_box";
             work_box.Size = new Size(77, 30);
-            work_box.TabIndex = 3;
+            work_box.TabIndex = 6;
             work_box.KeyPress += work_box_KeyPress;
             // 
             // work_label
@@ -240,7 +252,7 @@
             butMinusWork.Location = new Point(86, 83);
             butMinusWork.Name = "butMinusWork";
             butMinusWork.Size = new Size(77, 74);
-            butMinusWork.TabIndex = 10;
+            butMinusWork.TabIndex = 5;
             butMinusWork.UseVisualStyleBackColor = false;
             butMinusWork.Click += butMinusWork_Click;
             butMinusWork.Paint += butMinusWork_Paint;
@@ -252,7 +264,7 @@
             butPlusWork.Location = new Point(252, 83);
             butPlusWork.Name = "butPlusWork";
             butPlusWork.Size = new Size(79, 74);
-            butPlusWork.TabIndex = 11;
+            butPlusWork.TabIndex = 7;
             butPlusWork.UseVisualStyleBackColor = false;
             butPlusWork.Click += butPlusWork_Click;
             butPlusWork.Paint += butPlusWork_Paint;
@@ -285,7 +297,7 @@
             relaxBox.MaxLength = 7;
             relaxBox.Name = "relaxBox";
             relaxBox.Size = new Size(77, 30);
-            relaxBox.TabIndex = 5;
+            relaxBox.TabIndex = 9;
             relaxBox.KeyPress += relaxBox_KeyPress;
             // 
             // relax_label
@@ -305,7 +317,7 @@
             butMinusRelax.Location = new Point(86, 163);
             butMinusRelax.Name = "butMinusRelax";
             butMinusRelax.Size = new Size(77, 74);
-            butMinusRelax.TabIndex = 14;
+            butMinusRelax.TabIndex = 8;
             butMinusRelax.UseVisualStyleBackColor = false;
             butMinusRelax.Click += butMinusRelax_Click;
             butMinusRelax.Paint += butMinusRelax_Paint;
@@ -317,7 +329,7 @@
             butPlusRelax.Location = new Point(252, 163);
             butPlusRelax.Name = "butPlusRelax";
             butPlusRelax.Size = new Size(79, 74);
-            butPlusRelax.TabIndex = 15;
+            butPlusRelax.TabIndex = 10;
             butPlusRelax.UseVisualStyleBackColor = false;
             butPlusRelax.Click += butPlusRelax_Click;
             butPlusRelax.Paint += butPlusRelax_Paint;
@@ -339,9 +351,10 @@
             butMinusRest.Location = new Point(86, 243);
             butMinusRest.Name = "butMinusRest";
             butMinusRest.Size = new Size(77, 74);
-            butMinusRest.TabIndex = 17;
+            butMinusRest.TabIndex = 11;
             butMinusRest.UseVisualStyleBackColor = false;
             butMinusRest.Click += butMinusRest_Click;
+            butMinusRest.Paint += butMinusRest_Paint;
             // 
             // butPlusRest
             // 
@@ -350,9 +363,10 @@
             butPlusRest.Location = new Point(252, 243);
             butPlusRest.Name = "butPlusRest";
             butPlusRest.Size = new Size(79, 74);
-            butPlusRest.TabIndex = 18;
+            butPlusRest.TabIndex = 13;
             butPlusRest.UseVisualStyleBackColor = false;
             butPlusRest.Click += butPlusRest_Click;
+            butPlusRest.Paint += butPlusRest_Paint;
             // 
             // panel5
             // 
@@ -372,7 +386,7 @@
             restBox.MaxLength = 7;
             restBox.Name = "restBox";
             restBox.Size = new Size(77, 30);
-            restBox.TabIndex = 7;
+            restBox.TabIndex = 12;
             // 
             // rest_label
             // 
@@ -384,6 +398,70 @@
             rest_label.TabIndex = 6;
             rest_label.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.Dock = DockStyle.Fill;
+            pictureBox6.Location = new Point(3, 323);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(77, 74);
+            pictureBox6.TabIndex = 20;
+            pictureBox6.TabStop = false;
+            pictureBox6.Paint += pictureBox6_Paint;
+            // 
+            // butMinusCycle
+            // 
+            butMinusCycle.BackColor = Color.AntiqueWhite;
+            butMinusCycle.Dock = DockStyle.Fill;
+            butMinusCycle.Location = new Point(86, 323);
+            butMinusCycle.Name = "butMinusCycle";
+            butMinusCycle.Size = new Size(77, 74);
+            butMinusCycle.TabIndex = 21;
+            butMinusCycle.UseVisualStyleBackColor = false;
+            butMinusCycle.Click += butMinusCycle_Click;
+            butMinusCycle.Paint += butMinusCycle_Paint;
+            // 
+            // butPlusCycle
+            // 
+            butPlusCycle.BackColor = Color.AntiqueWhite;
+            butPlusCycle.Dock = DockStyle.Fill;
+            butPlusCycle.Location = new Point(252, 323);
+            butPlusCycle.Name = "butPlusCycle";
+            butPlusCycle.Size = new Size(79, 74);
+            butPlusCycle.TabIndex = 22;
+            butPlusCycle.UseVisualStyleBackColor = false;
+            butPlusCycle.Click += butPlusCycle_Click;
+            butPlusCycle.Paint += butPlusCycle_Paint;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(cycleBox);
+            panel6.Controls.Add(cycle_label);
+            panel6.Location = new Point(169, 323);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(77, 74);
+            panel6.TabIndex = 23;
+            // 
+            // cycleBox
+            // 
+            cycleBox.Anchor = AnchorStyles.None;
+            cycleBox.BackColor = Color.Linen;
+            cycleBox.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            cycleBox.Location = new Point(0, 44);
+            cycleBox.MaxLength = 7;
+            cycleBox.Name = "cycleBox";
+            cycleBox.Size = new Size(77, 30);
+            cycleBox.TabIndex = 14;
+            // 
+            // cycle_label
+            // 
+            cycle_label.Dock = DockStyle.Top;
+            cycle_label.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            cycle_label.Location = new Point(0, 0);
+            cycle_label.Name = "cycle_label";
+            cycle_label.Size = new Size(77, 42);
+            cycle_label.TabIndex = 13;
+            cycle_label.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 1;
@@ -394,7 +472,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(334, 52);
+            tableLayoutPanel2.Size = new Size(334, 27);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // AddTraineeLabel
@@ -404,7 +482,7 @@
             AddTraineeLabel.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             AddTraineeLabel.Location = new Point(3, 0);
             AddTraineeLabel.Name = "AddTraineeLabel";
-            AddTraineeLabel.Size = new Size(328, 52);
+            AddTraineeLabel.Size = new Size(328, 27);
             AddTraineeLabel.TabIndex = 0;
             AddTraineeLabel.Text = "Добавить тренировку";
             AddTraineeLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -416,7 +494,7 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 253F));
             tableLayoutPanel3.Controls.Add(panel2, 1, 0);
             tableLayoutPanel3.Controls.Add(pictureBox2, 0, 0);
-            tableLayoutPanel3.Location = new Point(0, 58);
+            tableLayoutPanel3.Location = new Point(0, 33);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
@@ -425,7 +503,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(title_box);
             panel2.Controls.Add(TraineeTitleLabel);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(84, 3);
@@ -433,15 +511,15 @@
             panel2.Size = new Size(247, 74);
             panel2.TabIndex = 0;
             // 
-            // textBox1
+            // title_box
             // 
-            textBox1.BackColor = Color.Linen;
-            textBox1.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            textBox1.Location = new Point(0, 41);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(247, 30);
-            textBox1.TabIndex = 1;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            title_box.BackColor = Color.Linen;
+            title_box.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            title_box.Location = new Point(0, 41);
+            title_box.Name = "title_box";
+            title_box.Size = new Size(247, 30);
+            title_box.TabIndex = 1;
+            title_box.TextAlign = HorizontalAlignment.Center;
             // 
             // TraineeTitleLabel
             // 
@@ -488,6 +566,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -510,7 +591,7 @@
         private Label AddTraineeLabel;
         private TableLayoutPanel tableLayoutPanel3;
         private Panel panel2;
-        private TextBox textBox1;
+        private TextBox title_box;
         private Label TraineeTitleLabel;
         private Button butConfirm;
         private PictureBox pictureBox2;
@@ -532,5 +613,11 @@
         private Panel panel5;
         private TextBox restBox;
         private Label rest_label;
+        private PictureBox pictureBox6;
+        private Button butMinusCycle;
+        private Button butPlusCycle;
+        private Panel panel6;
+        private TextBox cycleBox;
+        private Label cycle_label;
     }
 }
