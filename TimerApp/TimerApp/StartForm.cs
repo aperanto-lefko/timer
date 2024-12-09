@@ -11,6 +11,7 @@ namespace TimerApp
         private int minutes;
         private Queue<int> timeStages;
         private int index = 0;
+
         public TimerStartForm()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace TimerApp
             fullTimer = new System.Windows.Forms.Timer();
             fullTimer.Interval = 1000; // Интервал 1 секунда
             fullTimer.Tick += Timer_TickFull;
+            
 
         }
         private void Timer_TickFull(object sender, EventArgs e)
@@ -30,7 +32,7 @@ namespace TimerApp
             if (minutes > 0)
             {
                 minutes--;
-                SetFontValueForFullTimer(new Font("Comic Sans MS", 50, FontStyle.Bold), minutes);
+                SetFontValueForFullTimer(new Font("Comic Sans MS", 40, FontStyle.Bold), minutes);
             }
         }
 
@@ -90,14 +92,21 @@ namespace TimerApp
             AddTraineeForm addTraineeForm = new AddTraineeForm();
             if (addTraineeForm.ShowDialog() == DialogResult.OK)
             {// Ожидаем, пока форма 2 закроется
-                
+
                 butPause.Visible = true;
                 butPlay.Visible = true;
                 butAddTrainee.Visible = false;
                 pictureBox1.Visible = false;
 
                 Trainee trainee = addTraineeForm.Trainee;
+
                 minutes = addTraineeForm.SumSeconds;
+
+                if (!string.IsNullOrEmpty(trainee.Title))
+                {
+                    titleTraineeLabel.Text = trainee.Title.ToString();
+                }
+                titleTraineeLabel.Location = new Point(((this.Width - titleTraineeLabel.Width) / 2), (this.Height - titleTraineeLabel.Height) / 2 - 250);
                 timeStages = new Queue<int>(); //очередь последовательностей для таймера
 
                 if (trainee.RunUpTime != 0)
@@ -134,7 +143,7 @@ namespace TimerApp
                     SetFontValueForTimer(new Font("Comic Sans MS", 150, FontStyle.Bold), seconds);
                 }
                 //установка начального значения для таймера полного
-                SetFontValueForFullTimer(new Font("Comic Sans MS", 50, FontStyle.Bold), minutes);
+                SetFontValueForFullTimer(new Font("Comic Sans MS", 40, FontStyle.Bold), minutes);
             }
         }
 
@@ -166,7 +175,7 @@ namespace TimerApp
         }
         private void CenterLabelTimer() //установка места таймера на секунды
         {
-            labelTimer.Location = new Point(this.Width / 2 - labelTimer.Width / 2, (this.Height / 2 - labelTimer.Height / 2) - 50);
+            labelTimer.Location = new Point(this.Width / 2 - labelTimer.Width / 2, (this.Height / 2 - labelTimer.Height / 2) - 30);
         }
         private void CenterLabelFullTimer()
         {
@@ -183,5 +192,7 @@ namespace TimerApp
                 }
             }
         }
+
+        
     }
 }

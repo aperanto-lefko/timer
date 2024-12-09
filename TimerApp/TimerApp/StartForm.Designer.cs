@@ -36,6 +36,7 @@
             labelTimer = new Label();
             labelFullTimer = new Label();
             pictureBox1 = new PictureBox();
+            titleTraineeLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -135,12 +136,24 @@
             pictureBox1.TabStop = false;
             pictureBox1.Paint += pictureBox1_Paint;
             // 
+            // titleTraineeLabel
+            // 
+            titleTraineeLabel.Anchor = AnchorStyles.None;
+            titleTraineeLabel.AutoSize = true;
+            titleTraineeLabel.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            titleTraineeLabel.Location = new Point(112, 90);
+            titleTraineeLabel.Name = "titleTraineeLabel";
+            titleTraineeLabel.Size = new Size(0, 38);
+            titleTraineeLabel.TabIndex = 6;
+            titleTraineeLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // TimerStartForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
             ClientSize = new Size(384, 661);
+            Controls.Add(titleTraineeLabel);
             Controls.Add(pictureBox1);
             Controls.Add(labelFullTimer);
             Controls.Add(labelTimer);
@@ -167,5 +180,6 @@
         private Button butPlay;
         private Label labelFullTimer;
         private PictureBox pictureBox1;
+        private Label titleTraineeLabel;
     }
 }

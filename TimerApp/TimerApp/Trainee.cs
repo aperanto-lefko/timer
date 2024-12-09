@@ -9,7 +9,7 @@ namespace TimerApp
 {
     public class Trainee
     {
-        private string Title {  get; set; }
+        public string Title {  get; set; }
         public int Cycles { get; set; }
         public int RunUpTime { get; set; } //подготовка 
         public int WorkTime { get; set; } //работа
