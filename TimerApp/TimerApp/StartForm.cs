@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics;
 using System.Drawing.Text;
 using System.Windows.Forms;
 namespace TimerApp
@@ -6,6 +7,7 @@ namespace TimerApp
     public partial class TimerStartForm : Form
     {
         AddTraineeForm addTraineeForm;
+        RadioForm radioForm;
         private System.Windows.Forms.Timer timer;  //таймер на секунды по этапам
         private System.Windows.Forms.Timer fullTimer;  //таймер на полное время
         Trainee trainee;
@@ -23,6 +25,7 @@ namespace TimerApp
             butPause.Visible = false;
             butPlay.Visible = false;
             tableLayoutPanel3.Visible = false;
+            radioBut.Visible = false;
 
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000; // Интервал 1 секунда
@@ -30,7 +33,7 @@ namespace TimerApp
             fullTimer = new System.Windows.Forms.Timer();
             fullTimer.Interval = 1000; // Интервал 1 секунда
             fullTimer.Tick += Timer_TickFull;
-            
+
         }
         private void Timer_TickFull(object sender, EventArgs e)
         {
@@ -40,7 +43,7 @@ namespace TimerApp
                 SetFontValueForFullTimer(new Font("Comic Sans MS", 40, FontStyle.Bold), sumSeconds);
             }
         }
-      
+
         private void SetFontValueForTitleTimer(string title, int sec)
         {
             labelTitleTimer.Font = new Font("Comic Sans MS", 20, FontStyle.Bold);
@@ -99,21 +102,24 @@ namespace TimerApp
         private void butAddTrainee_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.add_time, butAddTrainee);
         private void butPause_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.pause, butPause);
         private void butPlay_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.play, butPlay);
+        private void radioBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.radio, radioBut);
         private void fixTraineeBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.menu, fixTraineeBut);
 
 
         private void butAddTrainee_Click(object sender, EventArgs e)
         {
             addTraineeForm = new AddTraineeForm();
+
             AddTrainee();
         }
-        private void AddTrainee() { 
- 
+        private void AddTrainee()
+        {
             if (addTraineeForm.ShowDialog() == DialogResult.OK)
             {// Ожидаем, пока форма 2 закроется
-
+               
                 butPause.Visible = true;
                 butPlay.Visible = true;
+                radioBut.Visible = true;
                 butAddTrainee.Visible = false;
                 pictureBox1.Visible = false;
                 titelLabel.Visible = false;
@@ -183,7 +189,7 @@ namespace TimerApp
 
             }
         }
-            
+
 
         private void butPause_Click(object sender, EventArgs e)
         {
@@ -226,6 +232,7 @@ namespace TimerApp
         {
             labelTitleTimer.Location = new Point(this.Width / 2 - labelTitleTimer.Width / 2, (this.Height / 2 - labelFullTimer.Height / 2 - 100));
         }
+
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             using (MemoryStream ms = new MemoryStream(Properties.Resources.timerApp))
@@ -243,10 +250,24 @@ namespace TimerApp
             {
                 addTraineeForm = new AddTraineeForm();
             }
-            
-                AddTrainee();
-            
+
+            AddTrainee();
 
         }
+
+        private void radioBut_Click(object sender, EventArgs e)
+        {
+            if (radioForm == null || radioForm.IsDisposed)
+            {
+                radioForm = new RadioForm();
+            }
+            radioForm.Show();
+        }
+
+
+
+
+
+
     }
 }

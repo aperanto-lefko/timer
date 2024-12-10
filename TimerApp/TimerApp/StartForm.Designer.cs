@@ -32,6 +32,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             butPause = new Button();
             butPlay = new Button();
+            radioBut = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             butAddTrainee = new Button();
             labelTimer = new Label();
@@ -59,6 +60,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.Controls.Add(butPause, 0, 0);
             tableLayoutPanel1.Controls.Add(butPlay, 3, 0);
+            tableLayoutPanel1.Controls.Add(radioBut, 2, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -75,6 +77,7 @@
             butPause.Name = "butPause";
             butPause.Size = new Size(90, 70);
             butPause.TabIndex = 1;
+            toolTip1.SetToolTip(butPause, "Остановить тренировку");
             butPause.UseVisualStyleBackColor = false;
             butPause.Click += butPause_Click;
             butPause.Paint += butPause_Paint;
@@ -86,10 +89,24 @@
             butPlay.Location = new Point(291, 3);
             butPlay.Name = "butPlay";
             butPlay.Size = new Size(90, 70);
-            butPlay.TabIndex = 2;
+            butPlay.TabIndex = 4;
+            toolTip1.SetToolTip(butPlay, "Запустить тренировку");
             butPlay.UseVisualStyleBackColor = false;
             butPlay.Click += butPlay_Click;
             butPlay.Paint += butPlay_Paint;
+            // 
+            // radioBut
+            // 
+            radioBut.BackColor = Color.AntiqueWhite;
+            radioBut.Dock = DockStyle.Fill;
+            radioBut.Location = new Point(195, 3);
+            radioBut.Name = "radioBut";
+            radioBut.Size = new Size(90, 70);
+            radioBut.TabIndex = 3;
+            toolTip1.SetToolTip(radioBut, "Выбрать радио");
+            radioBut.UseVisualStyleBackColor = false;
+            radioBut.Click += radioBut_Click;
+            radioBut.Paint += radioBut_Paint;
             // 
             // tableLayoutPanel2
             // 
@@ -163,7 +180,7 @@
             fixTraineeBut.Location = new Point(326, 3);
             fixTraineeBut.Name = "fixTraineeBut";
             fixTraineeBut.Size = new Size(31, 34);
-            fixTraineeBut.TabIndex = 3;
+            fixTraineeBut.TabIndex = 5;
             toolTip1.SetToolTip(fixTraineeBut, "Изменить время тренировки");
             fixTraineeBut.UseVisualStyleBackColor = false;
             fixTraineeBut.Click += fixTraineeBut_Click;
@@ -229,8 +246,10 @@
             Controls.Add(pictureBox1);
             Controls.Add(tableLayoutPanel3);
             ForeColor = SystemColors.ControlText;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Location = new Point(400, 400);
             Name = "TimerStartForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "TimerApp";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
@@ -258,5 +277,6 @@
         private Label traineeInfoLabel;
         private Button fixTraineeBut;
         private Label labelTitleTimer;
+        private Button radioBut;
     }
 }

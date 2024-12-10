@@ -561,7 +561,9 @@
             Controls.Add(tableLayoutPanel3);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "AddTraineeForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AddTrainee";
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

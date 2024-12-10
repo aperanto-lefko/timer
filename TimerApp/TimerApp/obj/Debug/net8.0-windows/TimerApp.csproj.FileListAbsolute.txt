@@ -37,3 +37,4 @@ E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.pdb
 E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.genruntimeconfig.cache
 E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\ref\TimerApp.dll
 E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.UserControl_Run_up.resources
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.RadioForm.resources
