@@ -5,18 +5,24 @@ namespace TimerApp
 {
     public partial class TimerStartForm : Form
     {
+        AddTraineeForm addTraineeForm;
         private System.Windows.Forms.Timer timer;  //таймер на секунды по этапам
         private System.Windows.Forms.Timer fullTimer;  //таймер на полное время
-        private int seconds;
-        private int minutes;
-        private Queue<int> timeStages;
+        Trainee trainee;
+        private int timeStage;
+        private string titleStage;
+        private int sumSeconds;
+        private Queue<int> timeStages; //список всех временных отрезков
+        private Queue<String> titleStages; //список названий временных отрезков
         private int index = 0;
+
 
         public TimerStartForm()
         {
             InitializeComponent();
             butPause.Visible = false;
             butPlay.Visible = false;
+            tableLayoutPanel3.Visible = false;
 
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000; // Интервал 1 секунда
@@ -25,31 +31,35 @@ namespace TimerApp
             fullTimer.Interval = 1000; // Интервал 1 секунда
             fullTimer.Tick += Timer_TickFull;
             
-
         }
         private void Timer_TickFull(object sender, EventArgs e)
         {
-            if (minutes > 0)
+            if (sumSeconds > 0)
             {
-                minutes--;
-                SetFontValueForFullTimer(new Font("Comic Sans MS", 40, FontStyle.Bold), minutes);
+                sumSeconds--;
+                SetFontValueForFullTimer(new Font("Comic Sans MS", 40, FontStyle.Bold), sumSeconds);
             }
         }
-
-
+      
+        private void SetFontValueForTitleTimer(string title, int sec)
+        {
+            labelTitleTimer.Font = new Font("Comic Sans MS", 20, FontStyle.Bold);
+            labelTitleTimer.Text = $"{title}:{sec:D2}"; // Форматирование: name:SS
+            CenterLabelTitleTimer();
+        }
 
         private void Timer_Tick(object sender, EventArgs e) //задание работы таймера
         {
-            if (seconds > 0)
+            if (timeStage > 0)
             {
-                seconds--;
-                if (seconds >= 1000 && seconds < 10000) //для 4-х значных значений таймера
+                timeStage--;
+                if (timeStage >= 1000 && timeStage < 10000) //для 4-х значных значений таймера
                 {
-                    SetFontValueForTimer(new Font("Comic Sans MS", 100, FontStyle.Bold), seconds);
+                    SetFontValueForTimer(new Font("Comic Sans MS", 100, FontStyle.Bold), timeStage);
                 }
                 else
                 {
-                    SetFontValueForTimer(new Font("Comic Sans MS", 150, FontStyle.Bold), seconds);
+                    SetFontValueForTimer(new Font("Comic Sans MS", 150, FontStyle.Bold), timeStage);
 
                 }
             }
@@ -57,9 +67,13 @@ namespace TimerApp
             {
                 if (timeStages.Count > 0)
                 {
-                    seconds = timeStages.Dequeue();
-                    labelTimer.Text = seconds.ToString(); // Обновляем текст метки
+                    timeStage = timeStages.Dequeue();
+                    labelTimer.Text = timeStage.ToString(); // Обновляем текст метки
                     CenterLabelTimer();
+                    //задаем значение для названия текущего этапа
+                    titleStage = titleStages.Dequeue();
+                    int titleStageTime = timeStage;
+                    SetFontValueForTitleTimer(titleStage, titleStageTime);
                 }
 
                 else
@@ -85,11 +99,16 @@ namespace TimerApp
         private void butAddTrainee_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.add_time, butAddTrainee);
         private void butPause_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.pause, butPause);
         private void butPlay_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.play, butPlay);
+        private void fixTraineeBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.menu, fixTraineeBut);
 
 
         private void butAddTrainee_Click(object sender, EventArgs e)
         {
-            AddTraineeForm addTraineeForm = new AddTraineeForm();
+            addTraineeForm = new AddTraineeForm();
+            AddTrainee();
+        }
+        private void AddTrainee() { 
+ 
             if (addTraineeForm.ShowDialog() == DialogResult.OK)
             {// Ожидаем, пока форма 2 закроется
 
@@ -97,67 +116,89 @@ namespace TimerApp
                 butPlay.Visible = true;
                 butAddTrainee.Visible = false;
                 pictureBox1.Visible = false;
+                titelLabel.Visible = false;
+                tableLayoutPanel3.Visible = true;
+                tableLayoutPanel2.Visible = false;
 
-                Trainee trainee = addTraineeForm.Trainee;
+                trainee = addTraineeForm.Trainee;
 
-                minutes = addTraineeForm.SumSeconds;
+                sumSeconds = addTraineeForm.SumSeconds;
+                traineeInfoLabel.Text = trainee.ToString(); //выводим описание тренировки
 
                 if (!string.IsNullOrEmpty(trainee.Title))
                 {
-                    titleTraineeLabel.Text = trainee.Title.ToString();
+                    titleTraineeLabel.Text = trainee.Title.ToString(); //устанавливаем название тренировки
                 }
                 titleTraineeLabel.Location = new Point(((this.Width - titleTraineeLabel.Width) / 2), (this.Height - titleTraineeLabel.Height) / 2 - 250);
+
                 timeStages = new Queue<int>(); //очередь последовательностей для таймера
+                titleStages = new Queue<string>();
 
                 if (trainee.RunUpTime != 0)
                 {
                     timeStages.Enqueue(trainee.RunUpTime);
+                    titleStages.Enqueue("Подготовка");
                 }
                 for (int i = 0; i < trainee.Cycles; i++)
                 {
                     if (trainee.WorkTime != 0)
                     {
                         timeStages.Enqueue(trainee.WorkTime);
+                        titleStages.Enqueue("Работа");
                     }
                     if (trainee.RelaxTime != 0)
                     {
                         timeStages.Enqueue(trainee.RelaxTime);
+                        titleStages.Enqueue("Отдых");
                     }
                 }
                 if (trainee.RestTime != 0)
                 {
                     timeStages.Enqueue(trainee.RestTime);
+                    titleStages.Enqueue("Расслабление");
                 }
                 if (timeStages.Count > 0)
                 {
-                    seconds = timeStages.Dequeue();
+                    timeStage = timeStages.Dequeue();
+                    titleStage = titleStages.Dequeue();
 
                 }
                 //установка начального значения для таймера этапов
-                if (seconds >= 1000 && seconds < 10000)
+                if (timeStage >= 1000 && timeStage < 10000)
                 {
-                    SetFontValueForTimer(new Font("Comic Sans MS", 100, FontStyle.Bold), seconds);
+                    SetFontValueForTimer(new Font("Comic Sans MS", 100, FontStyle.Bold), timeStage);
                 }
                 else
                 {
-                    SetFontValueForTimer(new Font("Comic Sans MS", 150, FontStyle.Bold), seconds);
+                    SetFontValueForTimer(new Font("Comic Sans MS", 150, FontStyle.Bold), timeStage);
                 }
                 //установка начального значения для таймера полного
-                SetFontValueForFullTimer(new Font("Comic Sans MS", 40, FontStyle.Bold), minutes);
+                SetFontValueForFullTimer(new Font("Comic Sans MS", 40, FontStyle.Bold), sumSeconds);
+            }
+            //установка начального значения для таймера с названием
+
+            if (trainee.RunUpTime != 0)
+            {
+                SetFontValueForTitleTimer("Подготовка", trainee.RunUpTime);
+
             }
         }
+            
 
         private void butPause_Click(object sender, EventArgs e)
         {
             timer.Stop();
             fullTimer.Stop();
-            butAddTrainee.Visible = true;
+
+
         }
 
         private void butPlay_Click(object sender, EventArgs e)
         {
             timer.Start();
             fullTimer.Start();
+
+
         }
         private void SetFontValueForTimer(Font font, int sec)
         {
@@ -175,13 +216,16 @@ namespace TimerApp
         }
         private void CenterLabelTimer() //установка места таймера на секунды
         {
-            labelTimer.Location = new Point(this.Width / 2 - labelTimer.Width / 2, (this.Height / 2 - labelTimer.Height / 2) - 30);
+            labelTimer.Location = new Point(this.Width / 2 - labelTimer.Width / 2, (this.Height / 2 - labelTimer.Height / 2) - 10);
         }
         private void CenterLabelFullTimer()
         {
             labelFullTimer.Location = new Point(this.Width / 2 - labelFullTimer.Width / 2, (this.Height / 2 - labelFullTimer.Height / 2 - 200));
         }
-
+        private void CenterLabelTitleTimer()
+        {
+            labelTitleTimer.Location = new Point(this.Width / 2 - labelTitleTimer.Width / 2, (this.Height / 2 - labelFullTimer.Height / 2 - 100));
+        }
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             using (MemoryStream ms = new MemoryStream(Properties.Resources.timerApp))
@@ -193,6 +237,16 @@ namespace TimerApp
             }
         }
 
-        
+        private void fixTraineeBut_Click(object sender, EventArgs e)
+        {
+            if (addTraineeForm == null || addTraineeForm.IsDisposed)
+            {
+                addTraineeForm = new AddTraineeForm();
+            }
+            
+                AddTrainee();
+            
+
+        }
     }
 }

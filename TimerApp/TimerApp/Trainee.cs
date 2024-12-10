@@ -13,26 +13,27 @@ namespace TimerApp
         public int Cycles { get; set; }
         public int RunUpTime { get; set; } //подготовка 
         public int WorkTime { get; set; } //работа
-        public int RestTime { get; set; } //отдых
-        public int RelaxTime { get; set; } //расслабление 
+        public int RelaxTime { get; set; } //отдых
+        public int RestTime { get; set; } //расслабление 
 
-        public Trainee (string Title, int Cycles, int RunUpTime, int WorkTime, int RelaxTime)
+        public Trainee (string Title, int Cycles, int RunUpTime, int WorkTime, int RelaxTime,int RestTime)
         {
             this.Title = Title;
             this.Cycles = Cycles;
             this.RunUpTime = RunUpTime;
             this.WorkTime = WorkTime;
             this.RelaxTime = RelaxTime;
-
+            this.RestTime = RestTime;
+           
         }
 
         public override string ToString()
         {
-            return $"Подготовка: {RunUpTime:F2} мин \n" +
-                                 $"Работа: {WorkTime:F2} мин \n" +
-                                 $"Отдых: {RestTime:F2} мин \n" +
-                                 $"Циклы: {Cycles} \n" +
-                                 $"Расслабление: {RelaxTime:F2} мин";
+            return $"Подготовка: {RunUpTime/60:F2} мин \n" +
+                                 $"Работа: {WorkTime/60:F2} мин \n" +
+                                 $"Отдых: {RelaxTime / 60:F2} мин \n" +
+                                 $"Циклы \"работа/отдых\": {Cycles} \n" +
+                                 $"Расслабление: {RestTime/60:F2} мин";
         }
 
         public double SumSecondsForTrainee ()

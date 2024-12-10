@@ -17,6 +17,7 @@ namespace TimerApp
         public AddTraineeForm()
         {
             InitializeComponent();
+            
 
             timeRun_up_box.Text = "0";
             work_box.Text = "0";
@@ -160,7 +161,7 @@ namespace TimerApp
             int workTime = int.Parse(work_box.Text)*60;
             int relaxTime = int.Parse(relaxBox.Text)*60;
             int restTime = int.Parse(restBox.Text)*60;
-            Trainee = new Trainee(title, cycle, runUpTime, workTime, relaxTime);
+            Trainee = new Trainee(title, cycle, runUpTime, workTime, relaxTime,restTime);
             SumSeconds = runUpTime + (workTime + relaxTime) * cycle + restTime; // Устанавливаем значение в секундах перед закрытием формы
             this.DialogResult = DialogResult.OK; //устанавливаем результат диалога
             this.Close();

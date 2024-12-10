@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tableLayoutPanel1 = new TableLayoutPanel();
             butPause = new Button();
             butPlay = new Button();
@@ -37,9 +38,16 @@
             labelFullTimer = new Label();
             pictureBox1 = new PictureBox();
             titleTraineeLabel = new Label();
+            toolTip1 = new ToolTip(components);
+            fixTraineeBut = new Button();
+            titelLabel = new Label();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            traineeInfoLabel = new Label();
+            labelTitleTimer = new Label();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -66,7 +74,7 @@
             butPause.Location = new Point(3, 3);
             butPause.Name = "butPause";
             butPause.Size = new Size(90, 70);
-            butPause.TabIndex = 0;
+            butPause.TabIndex = 1;
             butPause.UseVisualStyleBackColor = false;
             butPause.Click += butPause_Click;
             butPause.Paint += butPause_Paint;
@@ -78,7 +86,7 @@
             butPlay.Location = new Point(291, 3);
             butPlay.Name = "butPlay";
             butPlay.Size = new Size(90, 70);
-            butPlay.TabIndex = 1;
+            butPlay.TabIndex = 2;
             butPlay.UseVisualStyleBackColor = false;
             butPlay.Click += butPlay_Click;
             butPlay.Paint += butPlay_Paint;
@@ -107,6 +115,7 @@
             butAddTrainee.Name = "butAddTrainee";
             butAddTrainee.Size = new Size(90, 74);
             butAddTrainee.TabIndex = 0;
+            toolTip1.SetToolTip(butAddTrainee, "Добавить новую тренировку");
             butAddTrainee.UseVisualStyleBackColor = false;
             butAddTrainee.Click += butAddTrainee_Click;
             butAddTrainee.Paint += butAddTrainee_Paint;
@@ -147,18 +156,78 @@
             titleTraineeLabel.TabIndex = 6;
             titleTraineeLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // fixTraineeBut
+            // 
+            fixTraineeBut.Anchor = AnchorStyles.Top;
+            fixTraineeBut.BackColor = Color.AntiqueWhite;
+            fixTraineeBut.Location = new Point(326, 3);
+            fixTraineeBut.Name = "fixTraineeBut";
+            fixTraineeBut.Size = new Size(31, 34);
+            fixTraineeBut.TabIndex = 3;
+            toolTip1.SetToolTip(fixTraineeBut, "Изменить время тренировки");
+            fixTraineeBut.UseVisualStyleBackColor = false;
+            fixTraineeBut.Click += fixTraineeBut_Click;
+            fixTraineeBut.Paint += fixTraineeBut_Paint;
+            // 
+            // titelLabel
+            // 
+            titelLabel.AutoSize = true;
+            titelLabel.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            titelLabel.Location = new Point(118, 97);
+            titelLabel.Name = "titelLabel";
+            titelLabel.Size = new Size(154, 30);
+            titelLabel.TabIndex = 7;
+            titelLabel.Text = "workout timer";
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 3;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 37F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 37F));
+            tableLayoutPanel3.Controls.Add(traineeInfoLabel, 1, 0);
+            tableLayoutPanel3.Controls.Add(fixTraineeBut, 2, 0);
+            tableLayoutPanel3.Location = new Point(12, 478);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Size = new Size(360, 160);
+            tableLayoutPanel3.TabIndex = 8;
+            // 
+            // traineeInfoLabel
+            // 
+            traineeInfoLabel.AutoSize = true;
+            traineeInfoLabel.Dock = DockStyle.Fill;
+            traineeInfoLabel.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            traineeInfoLabel.Location = new Point(40, 0);
+            traineeInfoLabel.Name = "traineeInfoLabel";
+            traineeInfoLabel.Size = new Size(280, 160);
+            traineeInfoLabel.TabIndex = 0;
+            traineeInfoLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelTitleTimer
+            // 
+            labelTitleTimer.AutoSize = true;
+            labelTitleTimer.Location = new Point(184, 88);
+            labelTitleTimer.Name = "labelTitleTimer";
+            labelTitleTimer.Size = new Size(0, 15);
+            labelTitleTimer.TabIndex = 9;
+            // 
             // TimerStartForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
             ClientSize = new Size(384, 661);
+            Controls.Add(labelTitleTimer);
+            Controls.Add(titelLabel);
             Controls.Add(titleTraineeLabel);
-            Controls.Add(pictureBox1);
             Controls.Add(labelFullTimer);
             Controls.Add(labelTimer);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
+            Controls.Add(pictureBox1);
+            Controls.Add(tableLayoutPanel3);
             ForeColor = SystemColors.ControlText;
             Location = new Point(400, 400);
             Name = "TimerStartForm";
@@ -166,6 +235,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,5 +252,11 @@
         private Label labelFullTimer;
         private PictureBox pictureBox1;
         private Label titleTraineeLabel;
+        private ToolTip toolTip1;
+        private Label titelLabel;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Label traineeInfoLabel;
+        private Button fixTraineeBut;
+        private Label labelTitleTimer;
     }
 }
