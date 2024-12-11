@@ -33,6 +33,7 @@
             butPause = new Button();
             butPlay = new Button();
             radioBut = new Button();
+            musicBut = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             butAddTrainee = new Button();
             labelTimer = new Label();
@@ -61,6 +62,7 @@
             tableLayoutPanel1.Controls.Add(butPause, 0, 0);
             tableLayoutPanel1.Controls.Add(butPlay, 3, 0);
             tableLayoutPanel1.Controls.Add(radioBut, 2, 0);
+            tableLayoutPanel1.Controls.Add(musicBut, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -107,6 +109,18 @@
             radioBut.UseVisualStyleBackColor = false;
             radioBut.Click += radioBut_Click;
             radioBut.Paint += radioBut_Paint;
+            // 
+            // musicBut
+            // 
+            musicBut.BackColor = Color.AntiqueWhite;
+            musicBut.Dock = DockStyle.Fill;
+            musicBut.Location = new Point(99, 3);
+            musicBut.Name = "musicBut";
+            musicBut.Size = new Size(90, 70);
+            musicBut.TabIndex = 5;
+            musicBut.UseVisualStyleBackColor = false;
+            musicBut.Click += musicBut_Click;
+            musicBut.Paint += musicBut_Paint;
             // 
             // tableLayoutPanel2
             // 
@@ -278,5 +292,6 @@
         private Button fixTraineeBut;
         private Label labelTitleTimer;
         private Button radioBut;
+        private Button musicBut;
     }
 }

@@ -27,6 +27,7 @@ namespace TimerApp
             butPlay.Visible = false;
             tableLayoutPanel3.Visible = false;
             radioBut.Visible = false;
+            musicBut.Visible = false;
 
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000; // Интервал 1 секунда
@@ -92,7 +93,9 @@ namespace TimerApp
         private void butPause_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.pause, butPause);
         private void butPlay_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.play, butPlay);
         private void radioBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.radio, radioBut);
+        private void musicBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.music, musicBut);
         private void fixTraineeBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.menu, fixTraineeBut);
+
 
 
         private void butAddTrainee_Click(object sender, EventArgs e)
@@ -108,6 +111,7 @@ namespace TimerApp
                 butPause.Visible = true;
                 butPlay.Visible = true;
                 radioBut.Visible = true;
+                musicBut.Visible = true;
                 butAddTrainee.Visible = false;
                 pictureBox1.Visible = false;
                 titelLabel.Visible = false;
@@ -248,6 +252,12 @@ namespace TimerApp
                 radioForm = new RadioForm();
             }
             radioForm.Show();
+        }
+
+        private void musicBut_Click(object sender, EventArgs e)
+        {
+            MusicForm musicForm = new MusicForm();
+            musicForm.Show();
         }
     }
 }
