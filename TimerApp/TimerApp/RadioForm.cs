@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace TimerApp
 {
-    public partial class RadioForm : Form
+    public partial class RadioForm : BaseForm
     {
         public RadioForm()
         {
@@ -36,12 +36,11 @@ namespace TimerApp
             {
                 GoToRadio("https://hitfm.ru/");
             }
-            else if (maximumBut.Checked)
+            else if (yandexBut.Checked)
             {
-                GoToRadio("https://maximum.ru/");
+                GoToRadio(" https://music.yandex.ru");
+
             }
-
-
             this.Close();
         }
         private void GoToRadio(string url)
@@ -50,21 +49,8 @@ namespace TimerApp
         }
 
 
-
-
-        private void DrawButtonImage(PaintEventArgs e, byte[] imageData, Control button) //назначение картинок для кнопок
-        {
-            using (MemoryStream ms = new MemoryStream(imageData))
-            {
-                using (Image image = Image.FromStream(ms))
-                {
-                    e.Graphics.DrawImage(image, 0, 0, button.Width, button.Height);
-                }
-            }
-        }
         private void confirmRadioBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.confirm, confirmRadioBut);
         private void closeRadioBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.close, closeRadioBut);
-
         private void closeRadioBut_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -4,6 +4,9 @@
     <Compile Update="AddTraineeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="RadioForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TimerApp
 {
-    public partial class AddTraineeForm : Form
+    public partial class AddTraineeForm : BaseForm
     {
         public int SumSeconds { get; private set; }
         public Trainee Trainee { get; private set; }
@@ -110,17 +110,6 @@ namespace TimerApp
 
 
 
-        private void DrawButtonImage(PaintEventArgs e, byte[] imageData, Control button) //назначение картинок для кнопок
-        {
-            using (MemoryStream ms = new MemoryStream(imageData))
-            {
-                using (Image image = Image.FromStream(ms))
-                {
-                    e.Graphics.DrawImage(image, 0, 0, button.Width, button.Height);
-                }
-            }
-        }
-
 
         private void butMinusRunUp_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.minus, butMinusRunUp);
         private void butPlusRunUp_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.plus, butPlusRunUp);
@@ -135,17 +124,7 @@ namespace TimerApp
         private void butConfirm_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.confirm, butConfirm);
 
 
-        private void DrawPictureBoxImage(PaintEventArgs e, byte[] imageData, PictureBox pictureBox) //назначение картинок для полей
-        {
-            using (MemoryStream ms = new MemoryStream(imageData))
-            {
-                using (Image image = Image.FromStream(ms))
-                {
-                    e.Graphics.DrawImage(image, 0, 0, pictureBox.Width, pictureBox.Height);
-                }
-            }
-        }
-
+      
         private void pictureBox1_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.men, pictureBox1);
         private void pictureBox2_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.pen, pictureBox2);
         private void pictureBox3_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.barbell, pictureBox3);

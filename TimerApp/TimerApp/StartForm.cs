@@ -4,7 +4,7 @@ using System.Drawing.Text;
 using System.Windows.Forms;
 namespace TimerApp
 {
-    public partial class TimerStartForm : Form
+    public partial class TimerStartForm : BaseForm
     {
         AddTraineeForm addTraineeForm;
         RadioForm radioForm;
@@ -22,6 +22,7 @@ namespace TimerApp
         public TimerStartForm()
         {
             InitializeComponent();
+
             butPause.Visible = false;
             butPlay.Visible = false;
             tableLayoutPanel3.Visible = false;
@@ -87,18 +88,6 @@ namespace TimerApp
             }
         }
 
-
-        private void DrawButtonImage(PaintEventArgs e, byte[] imageData, Control button) //назначение картинок дл€ кнопок
-        {
-            using (MemoryStream ms = new MemoryStream(imageData))
-            {
-                using (Image image = Image.FromStream(ms))
-                {
-                    e.Graphics.DrawImage(image, 0, 0, button.Width, button.Height);
-                }
-            }
-        }
-
         private void butAddTrainee_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.add_time, butAddTrainee);
         private void butPause_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.pause, butPause);
         private void butPlay_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.play, butPlay);
@@ -109,14 +98,13 @@ namespace TimerApp
         private void butAddTrainee_Click(object sender, EventArgs e)
         {
             addTraineeForm = new AddTraineeForm();
-
             AddTrainee();
         }
         private void AddTrainee()
         {
             if (addTraineeForm.ShowDialog() == DialogResult.OK)
             {// ќжидаем, пока форма 2 закроетс€
-               
+
                 butPause.Visible = true;
                 butPlay.Visible = true;
                 radioBut.Visible = true;
@@ -138,7 +126,7 @@ namespace TimerApp
                 titleTraineeLabel.Location = new Point(((this.Width - titleTraineeLabel.Width) / 2), (this.Height - titleTraineeLabel.Height) / 2 - 250);
 
                 timeStages = new Queue<int>(); //очередь последовательностей дл€ таймера
-                titleStages = new Queue<string>();
+                titleStages = new Queue<string>(); //очередь последовательностей названий этапов
 
                 if (trainee.RunUpTime != 0)
                 {
@@ -183,10 +171,9 @@ namespace TimerApp
             }
             //установка начального значени€ дл€ таймера с названием
 
-            if (trainee.RunUpTime != 0)
+            if (titleStage != null)
             {
-                SetFontValueForTitleTimer("ѕодготовка", trainee.RunUpTime);
-
+                SetFontValueForTitleTimer(titleStage, timeStage);
             }
         }
 
@@ -203,7 +190,6 @@ namespace TimerApp
         {
             timer.Start();
             fullTimer.Start();
-
 
         }
         private void SetFontValueForTimer(Font font, int sec)
@@ -263,11 +249,5 @@ namespace TimerApp
             }
             radioForm.Show();
         }
-
-
-
-
-
-
     }
 }

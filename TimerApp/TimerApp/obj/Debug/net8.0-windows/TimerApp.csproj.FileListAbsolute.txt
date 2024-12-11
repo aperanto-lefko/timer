@@ -38,3 +38,4 @@ E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.gen
 E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\ref\TimerApp.dll
 E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.UserControl_Run_up.resources
 E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.RadioForm.resources
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.BaseForm.resources
