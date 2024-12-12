@@ -17,6 +17,7 @@ namespace TimerApp
         private Queue<int> timeStages; //список всех временных отрезков
         private Queue<String> titleStages; //список названий временных отрезков
         private int index = 0;
+        private int titleStageTime; //статическое время для промежутков
 
 
         public TimerStartForm()
@@ -57,6 +58,7 @@ namespace TimerApp
         {
             if (timeStage > 0)
             {
+                
                 timeStage--;
                 if (timeStage >= 1000 && timeStage < 10000) //для 4-х значных значений таймера
                 {
@@ -77,7 +79,7 @@ namespace TimerApp
                     CenterLabelTimer();
                     //задаем значение для названия текущего этапа
                     titleStage = titleStages.Dequeue();
-                    int titleStageTime = timeStage;
+                    //int titleStageTime = timeStage;
                     SetFontValueForTitleTimer(titleStage, titleStageTime);
                 }
 
@@ -95,7 +97,7 @@ namespace TimerApp
         private void radioBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.radio, radioBut);
         private void musicBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.music, musicBut);
         private void fixTraineeBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.menu, fixTraineeBut);
-
+        
 
 
         private void butAddTrainee_Click(object sender, EventArgs e)
@@ -106,7 +108,7 @@ namespace TimerApp
         private void AddTrainee()
         {
             if (addTraineeForm.ShowDialog() == DialogResult.OK)
-            {// Ожидаем, пока форма 2 закроется
+            {
 
                 butPause.Visible = true;
                 butPlay.Visible = true;
@@ -161,6 +163,7 @@ namespace TimerApp
                     titleStage = titleStages.Dequeue();
 
                 }
+                titleStageTime = timeStage; //вспомогательная переменная хранит длительность текущего этапа тренировки
                 //установка начального значения для таймера этапов
                 if (timeStage >= 1000 && timeStage < 10000)
                 {
@@ -177,8 +180,9 @@ namespace TimerApp
 
             if (titleStage != null)
             {
-                SetFontValueForTitleTimer(titleStage, timeStage);
+                SetFontValueForTitleTimer(titleStage, titleStageTime);
             }
+            
         }
 
 
@@ -236,12 +240,15 @@ namespace TimerApp
 
         private void fixTraineeBut_Click(object sender, EventArgs e)
         {
+            fullTimer.Stop();
+            timer.Stop();
             if (addTraineeForm == null || addTraineeForm.IsDisposed)
             {
                 addTraineeForm = new AddTraineeForm();
             }
 
             AddTrainee();
+            
 
         }
 
@@ -266,5 +273,8 @@ namespace TimerApp
             };
             musicForm.Show();
         }
+
+        
+        
     }
 }

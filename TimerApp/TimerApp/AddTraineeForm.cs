@@ -17,7 +17,7 @@ namespace TimerApp
         public AddTraineeForm()
         {
             InitializeComponent();
-            
+
 
             timeRun_up_box.Text = "0";
             work_box.Text = "0";
@@ -122,9 +122,9 @@ namespace TimerApp
         private void butMinusCycle_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.minus, butMinusCycle);
         private void butPlusCycle_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.plus, butPlusCycle);
         private void butConfirm_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.confirm, butConfirm);
+        private void closeBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.close, closeBut);
 
 
-      
         private void pictureBox1_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.men, pictureBox1);
         private void pictureBox2_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.pen, pictureBox2);
         private void pictureBox3_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.barbell, pictureBox3);
@@ -132,20 +132,26 @@ namespace TimerApp
         private void pictureBox5_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.sofa, pictureBox5);
         private void pictureBox6_Paint(object sender, PaintEventArgs e) => DrawPictureBoxImage(e, Properties.Resources.cycle, pictureBox6);
 
+
         private void butConfirm_Click(object sender, EventArgs e)
         {
             string title = title_box.Text;
             int cycle = int.Parse(cycleBox.Text);
-            int runUpTime = int.Parse(timeRun_up_box.Text)*60;
-            int workTime = int.Parse(work_box.Text)*60;
-            int relaxTime = int.Parse(relaxBox.Text)*60;
-            int restTime = int.Parse(restBox.Text)*60;
-            Trainee = new Trainee(title, cycle, runUpTime, workTime, relaxTime,restTime);
+            int runUpTime = int.Parse(timeRun_up_box.Text) * 60;
+            int workTime = int.Parse(work_box.Text) * 60;
+            int relaxTime = int.Parse(relaxBox.Text) * 60;
+            int restTime = int.Parse(restBox.Text) * 60;
+            Trainee = new Trainee(title, cycle, runUpTime, workTime, relaxTime, restTime);
             SumSeconds = runUpTime + (workTime + relaxTime) * cycle + restTime; // Устанавливаем значение в секундах перед закрытием формы
             this.DialogResult = DialogResult.OK; //устанавливаем результат диалога
             this.Close();
         }
 
+        private void closeBut_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel; //устанавливаем результат диалога
+            this.Close();
+        }
     }
 
 }

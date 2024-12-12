@@ -61,6 +61,7 @@
             panel6 = new Panel();
             cycleBox = new TextBox();
             cycle_label = new Label();
+            closeBut = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             AddTraineeLabel = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -114,6 +115,7 @@
             tableLayoutPanel1.Controls.Add(butMinusCycle, 1, 4);
             tableLayoutPanel1.Controls.Add(butPlusCycle, 3, 4);
             tableLayoutPanel1.Controls.Add(panel6, 2, 4);
+            tableLayoutPanel1.Controls.Add(closeBut, 0, 5);
             tableLayoutPanel1.Location = new Point(0, 113);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
@@ -202,8 +204,8 @@
             butConfirm.Location = new Point(252, 403);
             butConfirm.Name = "butConfirm";
             butConfirm.Size = new Size(79, 80);
-            butConfirm.TabIndex = 16;
-            toolTip1.SetToolTip(butConfirm, "Подтвердить ввод");
+            butConfirm.TabIndex = 17;
+            toolTip1.SetToolTip(butConfirm, "Подтвердить");
             butConfirm.UseVisualStyleBackColor = false;
             butConfirm.Click += butConfirm_Click;
             butConfirm.Paint += butConfirm_Paint;
@@ -470,6 +472,19 @@
             cycle_label.TabIndex = 0;
             cycle_label.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // closeBut
+            // 
+            closeBut.BackColor = Color.AntiqueWhite;
+            closeBut.Dock = DockStyle.Fill;
+            closeBut.Location = new Point(3, 403);
+            closeBut.Name = "closeBut";
+            closeBut.Size = new Size(77, 80);
+            closeBut.TabIndex = 16;
+            toolTip1.SetToolTip(closeBut, "Отменить");
+            closeBut.UseVisualStyleBackColor = false;
+            closeBut.Click += closeBut_Click;
+            closeBut.Paint += closeBut_Paint;
+            // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 1;
@@ -492,7 +507,7 @@
             AddTraineeLabel.Name = "AddTraineeLabel";
             AddTraineeLabel.Size = new Size(328, 27);
             AddTraineeLabel.TabIndex = 0;
-            AddTraineeLabel.Text = "Добавить тренировку";
+            AddTraineeLabel.Text = "Составить тренировку";
             AddTraineeLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
@@ -632,5 +647,6 @@
         private TextBox cycleBox;
         private Label cycle_label;
         private ToolTip toolTip1;
+        private Button closeBut;
     }
 }
