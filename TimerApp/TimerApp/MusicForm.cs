@@ -65,7 +65,7 @@ namespace TimerApp
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog()) //открытие окна для выбора
             {
-                openFileDialog.Filter = "Audio files |*.mp3;*.wav;*.aac;*.flac";
+                openFileDialog.Filter = "Audio files |*.mp3";
                 openFileDialog.Title = "Выберите файлы для воспроизведения";
                 openFileDialog.Multiselect = true;
                 openFileDialog.InitialDirectory = "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\music";
@@ -88,51 +88,7 @@ namespace TimerApp
                 }
             }
         }
-        /*private void playBut_Click(object sender, EventArgs e)
-        {
-
-            Thread playThread = new Thread(PlayMusic);
-            playThread.IsBackground = true;
-            playThread.Start();
-            addMusicBut.Enabled = false;
-
-
-        }
-
-        private void PlayMusic()
-        {
-            foreach (var file in musicFiles)
-            {
-                {
-                    using (audioFileReader = new AudioFileReader(file)) //создается audioFileReader для чтения аудиофайла
-                    {
-                        waveOut = new WaveOutEvent(); //создается WaveOutEven для воспроизведения каждого файла
-                        waveOut.Init(audioFileReader); //инициализация waveOut с помощью audioFileReader
-                        waveOut.Play(); //воспроизведение
-
-                        while (waveOut.PlaybackState == PlaybackState.Playing) // цикл ожидает, пока аудиофайл воспроизводится 
-                        {
-                            int timeTrack = (int)audioFileReader.TotalTime.TotalMilliseconds; //получаем время воспроизведения трека
-                            trackLab.Text = $"{Path.GetFileName(file)} : {audioFileReader.TotalTime.ToString(@"mm\:ss")}";
-                            Thread.Sleep(timeTrack); //усыпляем поток на время трека
-                        }
-                    }
-                }
-               
-                waveOut?.Dispose();
-            }
-        }
-
-
-        private void pauseBut_Click(object sender, EventArgs e)
-        {
-            if (waveOut != null && waveOut.PlaybackState == PlaybackState.Playing)
-            {
-                waveOut.Pause();
-
-            }
-        }*/
-
+       
         private void playBut_Click(object sender, EventArgs e)
         {
             if (!isPlaying)
@@ -169,7 +125,7 @@ namespace TimerApp
         }
         private void UpdateLabel(string file, TimeSpan trackTime)
         {
-            if (trackLab.InvokeRequired) //это проверяет, вызывается ли метод из другого потока. Элементы управления интерфейса
+            if (trackLab.InvokeRequired) // проверяет, вызывается ли метод из другого потока. Элементы управления интерфейса
                                          //(например, метки на форме) могут обновляться только из главного потока (UI поток).
                                          //Если InvokeRequired истинно (т.е. метод вызывается не из главного потока), то следует сделать следующее:
             {
