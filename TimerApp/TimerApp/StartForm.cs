@@ -256,7 +256,14 @@ namespace TimerApp
 
         private void musicBut_Click(object sender, EventArgs e)
         {
+            musicBut.Enabled = false; //блокируем кнопку 
             MusicForm musicForm = new MusicForm();
+            // Подписываемся на событие закрытия формы
+            musicForm.FormClosed += (s, args) =>
+            {
+                // Разблокируем кнопку после закрытия формы
+                musicBut.Enabled = true;
+            };
             musicForm.Show();
         }
     }

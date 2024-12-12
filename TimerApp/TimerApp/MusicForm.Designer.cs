@@ -113,6 +113,7 @@
             pauseBut.Size = new Size(53, 49);
             pauseBut.TabIndex = 2;
             pauseBut.UseVisualStyleBackColor = false;
+            pauseBut.Click += pauseBut_Click;
             pauseBut.Paint += pauseBut_Paint;
             // 
             // playBut
@@ -124,12 +125,14 @@
             playBut.Size = new Size(51, 49);
             playBut.TabIndex = 3;
             playBut.UseVisualStyleBackColor = false;
+            playBut.Click += playBut_Click;
             playBut.Paint += playBut_Paint;
             // 
             // trackLab
             // 
+            trackLab.Anchor = AnchorStyles.Left;
             trackLab.AutoSize = true;
-            trackLab.Location = new Point(3, 0);
+            trackLab.Location = new Point(3, 16);
             trackLab.Name = "trackLab";
             trackLab.Size = new Size(0, 23);
             trackLab.TabIndex = 4;
