@@ -32,6 +32,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             addMusicBut = new Button();
             closeBut = new Button();
+            plListTimeLab = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             pauseBut = new Button();
             playBut = new Button();
@@ -47,11 +48,12 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10.7074566F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 89.29254F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 56F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
             tableLayoutPanel1.Controls.Add(addMusicBut, 0, 0);
             tableLayoutPanel1.Controls.Add(closeBut, 2, 0);
+            tableLayoutPanel1.Controls.Add(plListTimeLab, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -67,7 +69,7 @@
             addMusicBut.Dock = DockStyle.Fill;
             addMusicBut.Location = new Point(3, 3);
             addMusicBut.Name = "addMusicBut";
-            addMusicBut.Size = new Size(50, 49);
+            addMusicBut.Size = new Size(54, 49);
             addMusicBut.TabIndex = 0;
             toolTip1.SetToolTip(addMusicBut, "Добавить файлы для воспроизведения");
             addMusicBut.UseVisualStyleBackColor = false;
@@ -78,20 +80,30 @@
             // 
             closeBut.BackColor = Color.AntiqueWhite;
             closeBut.Dock = DockStyle.Fill;
-            closeBut.Location = new Point(526, 3);
+            closeBut.Location = new Point(523, 3);
             closeBut.Name = "closeBut";
-            closeBut.Size = new Size(51, 49);
+            closeBut.Size = new Size(54, 49);
             closeBut.TabIndex = 1;
+            toolTip1.SetToolTip(closeBut, "Закрыть");
             closeBut.UseVisualStyleBackColor = false;
             closeBut.Click += closeBut_Click;
             closeBut.Paint += closeBut_Paint;
             // 
+            // plListTimeLab
+            // 
+            plListTimeLab.Anchor = AnchorStyles.Right;
+            plListTimeLab.AutoSize = true;
+            plListTimeLab.Location = new Point(517, 16);
+            plListTimeLab.Name = "plListTimeLab";
+            plListTimeLab.Size = new Size(0, 23);
+            plListTimeLab.TabIndex = 2;
+            // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 88.7189255F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 11.2810707F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 56F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
             tableLayoutPanel2.Controls.Add(pauseBut, 1, 0);
             tableLayoutPanel2.Controls.Add(playBut, 2, 0);
             tableLayoutPanel2.Controls.Add(trackLab, 0, 0);
@@ -99,7 +111,7 @@
             tableLayoutPanel2.Location = new Point(0, 202);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Size = new Size(580, 55);
             tableLayoutPanel2.TabIndex = 1;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
@@ -108,10 +120,11 @@
             // 
             pauseBut.BackColor = Color.AntiqueWhite;
             pauseBut.Dock = DockStyle.Fill;
-            pauseBut.Location = new Point(467, 3);
+            pauseBut.Location = new Point(463, 3);
             pauseBut.Name = "pauseBut";
-            pauseBut.Size = new Size(53, 49);
+            pauseBut.Size = new Size(54, 49);
             pauseBut.TabIndex = 2;
+            toolTip1.SetToolTip(pauseBut, "Пауза");
             pauseBut.UseVisualStyleBackColor = false;
             pauseBut.Click += pauseBut_Click;
             pauseBut.Paint += pauseBut_Paint;
@@ -120,10 +133,11 @@
             // 
             playBut.BackColor = Color.AntiqueWhite;
             playBut.Dock = DockStyle.Fill;
-            playBut.Location = new Point(526, 3);
+            playBut.Location = new Point(523, 3);
             playBut.Name = "playBut";
-            playBut.Size = new Size(51, 49);
+            playBut.Size = new Size(54, 49);
             playBut.TabIndex = 3;
+            toolTip1.SetToolTip(playBut, "Вопроизведение");
             playBut.UseVisualStyleBackColor = false;
             playBut.Click += playBut_Click;
             playBut.Paint += playBut_Paint;
@@ -171,13 +185,13 @@
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
             Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4);
             MaximizeBox = false;
             Name = "MusicForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Music";
             tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -198,5 +212,6 @@
         private TableLayoutPanel tableLayoutPanel3;
         private Label playListLab;
         private Label trackLab;
+        private Label plListTimeLab;
     }
 }

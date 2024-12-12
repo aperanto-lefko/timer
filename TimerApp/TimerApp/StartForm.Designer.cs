@@ -117,7 +117,8 @@
             musicBut.Location = new Point(99, 3);
             musicBut.Name = "musicBut";
             musicBut.Size = new Size(90, 70);
-            musicBut.TabIndex = 5;
+            musicBut.TabIndex = 2;
+            toolTip1.SetToolTip(musicBut, "Добавить аудиофайлы");
             musicBut.UseVisualStyleBackColor = false;
             musicBut.Click += musicBut_Click;
             musicBut.Paint += musicBut_Paint;

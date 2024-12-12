@@ -20,6 +20,7 @@ namespace TimerApp
         private AudioFileReader audioFileReader; //объект, который используется для чтения аудиофайлов (например, WAV, MP3 и т.д.) и получения информации о них
         private bool isPaused;
         private bool isPlaying;
+        private TimeSpan playListTime;
         
         public MusicForm()
         {
@@ -34,10 +35,7 @@ namespace TimerApp
         private void pauseBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.pause, pauseBut);
         private void playBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.play, playBut);
 
-        private void setSizeForm()
-        {
-            this.Height = tableLayoutPanel1.Height + tableLayoutPanel2.Height + tableLayoutPanel3.Height;
-        }
+        
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
@@ -56,8 +54,13 @@ namespace TimerApp
 
         private void closeBut_Click(object sender, EventArgs e)
         {
-            waveOut.Stop();
-            waveOut.Dispose();
+            isPlaying = false;
+            
+            if (waveOut != null)
+            {
+                waveOut.Stop();
+                waveOut.Dispose();
+            }
             this.Close();
         }
 
@@ -70,21 +73,29 @@ namespace TimerApp
                 openFileDialog.Multiselect = true;
                 openFileDialog.InitialDirectory = "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\music";
 
+                 //Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //папка мои документы
+                //"E:\\ITMO\\Windows C#\\Timer\\TimerApp\\music";
+
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
 
                 {
 
                     musicFiles = new Queue<string>(openFileDialog.FileNames); //создаем новую очередь из файлов музыки 
                    
+                    foreach(string file in musicFiles)
+                    {
+                        using (audioFileReader = new AudioFileReader(file)) ;
+                        playListTime += audioFileReader.TotalTime;
+                    }
+                    plListTimeLab.Text = $"Общее время: {playListTime.ToString((@"mm\:ss"))}";
 
-                    StringBuilder sb = new StringBuilder();
+                    StringBuilder sb = new StringBuilder(); //создание playlist
                     foreach (var item in musicFiles)
                     {
                         sb.AppendLine(Path.GetFileName(item));
                     }
                     playListLab.Text = sb.ToString();
-                    // tableLayoutPanel3.Height = musicFiles.Count * 30;
-                    //setSizeForm();
+                    
                 }
             }
         }
@@ -96,7 +107,7 @@ namespace TimerApp
                 isPlaying = true;
                 Task.Run(() => PlayNextTrack()); //Task.Run создает задачу, которая выполняется асинхронно
             }
-            else if (isPaused)
+            else if (isPaused) //если были на паузе
             {
                 waveOut?.Play();
                 isPaused = false;
@@ -105,23 +116,24 @@ namespace TimerApp
 
         private void PlayNextTrack()
         {
-            if (musicFiles.Count!=0)
-            {
-                string file = musicFiles.Dequeue();
-                using (audioFileReader = new AudioFileReader(file))
+            
+                if (musicFiles.Count != 0 && isPlaying)
                 {
-                    waveOut = new WaveOutEvent(); //создается WaveOutEven для воспроизведения каждого файла
-                    waveOut.Init(audioFileReader); //инициализация waveOut с помощью audioFileReader
-                    waveOut.Play(); //воспроизведение
-                    
-                    waveOut.PlaybackStopped += OnPlaybackStopped; //подписываемся на событие когда трек кончился/остановился
-                                                                  
-                    Task.Run(() => UpdateLabel(file, audioFileReader.TotalTime)); //если без потока музыка спотыкается
+                    string file = musicFiles.Dequeue();
+                    using (audioFileReader = new AudioFileReader(file))
+                    {
+                        waveOut = new WaveOutEvent(); //создается WaveOutEven для воспроизведения каждого файла
+                        waveOut.Init(audioFileReader); //инициализация waveOut с помощью audioFileReader
+                        waveOut.Play(); //воспроизведение
 
+                        waveOut.PlaybackStopped += OnPlaybackStopped; //подписываемся на событие когда трек кончился/остановился
+
+                        Task.Run(() => UpdateLabel(file, audioFileReader.TotalTime)); //если без потока музыка спотыкается
+ 
+                    }
                 }
-            }
 
-
+            
         }
         private void UpdateLabel(string file, TimeSpan trackTime)
         {
@@ -149,7 +161,7 @@ namespace TimerApp
             }
         }
 
-        private void OnPlaybackStopped(object sender, EventArgs e)
+        private void OnPlaybackStopped(object sender, EventArgs e) //реакция на окончание трека
         {
             waveOut?.Dispose();
             
