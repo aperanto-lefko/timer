@@ -152,6 +152,20 @@ namespace TimerApp
             this.DialogResult = DialogResult.Cancel; //устанавливаем результат диалога
             this.Close();
         }
+        private void SelectAllInBox(EventArgs e, Control box)
+        {
+            if (box is TextBox textBox)
+            {
+                textBox.SelectAll();
+            }
+        }
+
+        private void timeRun_up_box_Click(object sender, EventArgs e) => SelectAllInBox(e, timeRun_up_box);
+        private void work_box_Click(object sender, EventArgs e) => SelectAllInBox(e, work_box);
+        private void relaxBox_Click(object sender, EventArgs e) => SelectAllInBox(e, relaxBox);
+        private void restBox_Click(object sender, EventArgs e) => SelectAllInBox(e, restBox);
+        private void cycleBox_Click(object sender, EventArgs e) => SelectAllInBox(e, cycleBox);
+
     }
 
 }

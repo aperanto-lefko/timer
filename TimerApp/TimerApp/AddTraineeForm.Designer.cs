@@ -149,6 +149,7 @@
             timeRun_up_box.Size = new Size(77, 30);
             timeRun_up_box.TabIndex = 2;
             toolTip1.SetToolTip(timeRun_up_box, "Время для подготовки, мин");
+            timeRun_up_box.Click += timeRun_up_box_Click;
             timeRun_up_box.KeyPress += timeRun_up_box_KeyPress;
             // 
             // run_up_label
@@ -240,6 +241,7 @@
             work_box.Size = new Size(77, 30);
             work_box.TabIndex = 5;
             toolTip1.SetToolTip(work_box, "Время для работы, мин");
+            work_box.Click += work_box_Click;
             work_box.KeyPress += work_box_KeyPress;
             // 
             // work_label
@@ -306,6 +308,7 @@
             relaxBox.Size = new Size(77, 30);
             relaxBox.TabIndex = 8;
             toolTip1.SetToolTip(relaxBox, "Время для отдыха, мин");
+            relaxBox.Click += relaxBox_Click;
             relaxBox.KeyPress += relaxBox_KeyPress;
             // 
             // relax_label
@@ -396,6 +399,7 @@
             restBox.Size = new Size(77, 30);
             restBox.TabIndex = 11;
             toolTip1.SetToolTip(restBox, "Время для заминки, мин");
+            restBox.Click += restBox_Click;
             // 
             // rest_label
             // 
@@ -461,6 +465,7 @@
             cycleBox.Size = new Size(77, 30);
             cycleBox.TabIndex = 14;
             toolTip1.SetToolTip(cycleBox, "Количество циклов \"работа/отдых\"");
+            cycleBox.Click += cycleBox_Click;
             // 
             // cycle_label
             // 

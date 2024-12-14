@@ -37,6 +37,7 @@
             pauseBut = new Button();
             playBut = new Button();
             trackLab = new Label();
+            rewindBut = new Button();
             toolTip1 = new ToolTip(components);
             tableLayoutPanel3 = new TableLayoutPanel();
             playListLab = new Label();
@@ -100,13 +101,15 @@
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnCount = 4;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
             tableLayoutPanel2.Controls.Add(pauseBut, 1, 0);
             tableLayoutPanel2.Controls.Add(playBut, 2, 0);
             tableLayoutPanel2.Controls.Add(trackLab, 0, 0);
+            tableLayoutPanel2.Controls.Add(rewindBut, 3, 0);
             tableLayoutPanel2.Dock = DockStyle.Bottom;
             tableLayoutPanel2.Location = new Point(0, 202);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -120,7 +123,7 @@
             // 
             pauseBut.BackColor = Color.AntiqueWhite;
             pauseBut.Dock = DockStyle.Fill;
-            pauseBut.Location = new Point(463, 3);
+            pauseBut.Location = new Point(403, 3);
             pauseBut.Name = "pauseBut";
             pauseBut.Size = new Size(54, 49);
             pauseBut.TabIndex = 2;
@@ -133,7 +136,7 @@
             // 
             playBut.BackColor = Color.AntiqueWhite;
             playBut.Dock = DockStyle.Fill;
-            playBut.Location = new Point(523, 3);
+            playBut.Location = new Point(463, 3);
             playBut.Name = "playBut";
             playBut.Size = new Size(54, 49);
             playBut.TabIndex = 3;
@@ -151,6 +154,19 @@
             trackLab.Size = new Size(0, 23);
             trackLab.TabIndex = 4;
             trackLab.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // rewindBut
+            // 
+            rewindBut.BackColor = Color.AntiqueWhite;
+            rewindBut.Dock = DockStyle.Fill;
+            rewindBut.Location = new Point(523, 3);
+            rewindBut.Name = "rewindBut";
+            rewindBut.Size = new Size(54, 49);
+            rewindBut.TabIndex = 5;
+            toolTip1.SetToolTip(rewindBut, "Следующий");
+            rewindBut.UseVisualStyleBackColor = false;
+            rewindBut.Click += rewindBut_Click;
+            rewindBut.Paint += rewindBut_Paint;
             // 
             // tableLayoutPanel3
             // 
@@ -213,5 +229,6 @@
         private Label playListLab;
         private Label trackLab;
         private Label plListTimeLab;
+        private Button rewindBut;
     }
 }

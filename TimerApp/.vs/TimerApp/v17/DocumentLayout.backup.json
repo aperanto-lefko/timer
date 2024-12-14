@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\addtraineeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\addtraineeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|E:\\ITMO\\Windows C#\\Timer\\TimerApp\\timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\addtraineeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\addtraineeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|E:\\ITMO\\Windows C#\\Timer\\TimerApp\\timerapp\\addtraineeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\addtraineeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\startform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,24 +35,12 @@
       "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\startform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|E:\\ITMO\\Windows C#\\Timer\\TimerApp\\timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\radioform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|E:\\ITMO\\Windows C#\\Timer\\TimerApp\\timerapp\\radioform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\radioform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\radioform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\radioform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,68 +66,68 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "AddTraineeForm.cs",
+              "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\AddTraineeForm.cs",
+              "RelativeDocumentMoniker": "TimerApp\\AddTraineeForm.cs",
+              "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\AddTraineeForm.cs",
+              "RelativeToolTip": "TimerApp\\AddTraineeForm.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAgwKQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T10:58:20.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MusicForm.cs [Design]",
+              "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\MusicForm.cs",
+              "RelativeDocumentMoniker": "TimerApp\\MusicForm.cs",
+              "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\MusicForm.cs [Design]",
+              "RelativeToolTip": "TimerApp\\MusicForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T11:02:46.825Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AddTraineeForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\AddTraineeForm.cs",
               "RelativeDocumentMoniker": "TimerApp\\AddTraineeForm.cs",
               "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\AddTraineeForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "RelativeToolTip": "TimerApp\\AddTraineeForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T20:25:48.877Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RadioForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\RadioForm.cs",
-              "RelativeDocumentMoniker": "TimerApp\\RadioForm.cs",
-              "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\RadioForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "RelativeToolTip": "TimerApp\\RadioForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T15:10:19.39Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "StartForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\StartForm.cs",
-              "RelativeDocumentMoniker": "TimerApp\\StartForm.cs",
-              "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\StartForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "RelativeToolTip": "TimerApp\\StartForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T15:09:00.424Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
+              "WhenOpened": "2024-12-14T10:48:36.953Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "MusicForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\MusicForm.cs",
-              "RelativeDocumentMoniker": "TimerApp\\MusicForm.cs",
-              "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\MusicForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "RelativeToolTip": "TimerApp\\MusicForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\Program.cs",
+              "RelativeDocumentMoniker": "TimerApp\\Program.cs",
+              "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\Program.cs",
+              "RelativeToolTip": "TimerApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T11:21:39.256Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
+              "WhenOpened": "2024-12-13T21:37:12.473Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "MusicForm.cs",
               "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\MusicForm.cs",
               "RelativeDocumentMoniker": "TimerApp\\MusicForm.cs",
               "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\MusicForm.cs",
               "RelativeToolTip": "TimerApp\\MusicForm.cs",
-              "ViewState": "AgIAANYAAAAAAAAAAAAAAOQAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAABoBAAAAAAAAAAAgwBQBAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-11T21:30:42.897Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "RadioForm.cs",
               "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\RadioForm.cs",
               "RelativeDocumentMoniker": "TimerApp\\RadioForm.cs",
@@ -131,36 +135,24 @@
               "RelativeToolTip": "TimerApp\\RadioForm.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAowDkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T21:11:59.415Z"
+              "WhenOpened": "2024-12-11T21:11:59.415Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "BaseForm.cs",
               "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\BaseForm.cs",
               "RelativeDocumentMoniker": "TimerApp\\BaseForm.cs",
               "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\BaseForm.cs",
               "RelativeToolTip": "TimerApp\\BaseForm.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-11T19:31:31.148Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AddTraineeForm.cs",
-              "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\AddTraineeForm.cs",
-              "RelativeDocumentMoniker": "TimerApp\\AddTraineeForm.cs",
-              "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\AddTraineeForm.cs",
-              "RelativeToolTip": "TimerApp\\AddTraineeForm.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAAAJcAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T08:34:59.552Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "StartForm.cs",
               "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\StartForm.cs",
               "RelativeDocumentMoniker": "TimerApp\\StartForm.cs",
@@ -170,6 +162,32 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T08:03:59.039Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RadioForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\RadioForm.cs",
+              "RelativeDocumentMoniker": "TimerApp\\RadioForm.cs",
+              "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\RadioForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "TimerApp\\RadioForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T15:10:19.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StartForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\StartForm.cs",
+              "RelativeDocumentMoniker": "TimerApp\\StartForm.cs",
+              "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\StartForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "TimerApp\\StartForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T15:09:00.424Z"
             }
           ]
         }
