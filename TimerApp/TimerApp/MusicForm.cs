@@ -30,7 +30,7 @@ namespace TimerApp
         private System.Windows.Forms.Timer fullTimer;  //таймер на полное время
         private System.Windows.Forms.Timer trackTimer;
         private CancellationTokenSource cancellationTokenSource; //отслеживание отмены работы потока
-
+        private bool isRewind;
 
         public MusicForm()
         {
@@ -61,7 +61,6 @@ namespace TimerApp
         }
 
         private void addMusicBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.plus, addMusicBut);
-
         private void closeBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.close, closeBut);
         private void pauseBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.pause, pauseBut);
         private void playBut_Paint(object sender, PaintEventArgs e) => DrawButtonImage(e, Properties.Resources.play, playBut);
@@ -128,13 +127,10 @@ namespace TimerApp
                         }
                     }
 
-
-
                     plListTimeLab.Text = $"Общее время: {playListTime.ToString((@"mm\:ss"))}";
                     SetPlayListLabel(musicFiles); //после создания очереди формируем список треков
 
                     playBut.Enabled = true;
-
 
                 }
             }
@@ -162,6 +158,7 @@ namespace TimerApp
             playBut.Enabled = false;
             rewindBut.Enabled = true;
             pauseBut.Enabled = true;
+
             if (!isPlaying && !isPaused)
             {
                 cancellationTokenSource = new CancellationTokenSource();
@@ -183,7 +180,26 @@ namespace TimerApp
                 trackTimer.Start();
             }
         }
+        private void pauseBut_Click(object sender, EventArgs e)
+        {
+            playBut.Enabled = true;
+            rewindBut.Enabled = false;
+            pauseBut.Enabled = false;
 
+            fullTimer.Stop();
+            trackTimer.Stop();
+
+            isPaused = true;
+            isPlaying = false;
+
+        }
+        private void rewindBut_Click(object sender, EventArgs e)
+        {
+            if (isPlaying)
+            {
+                isRewind = true;
+            }
+        }
 
         private void PlayNextTrack(CancellationToken token)
         {
@@ -200,7 +216,7 @@ namespace TimerApp
                             using (audioFileReader = new AudioFileReader(track)) ;
                             playListTime += audioFileReader.TotalTime;
                         }
-                        Task.Run(() => UpdatePlayListLabel(playListTime));
+                        Task.Run(() => UpdatePlayListTimeLabel(playListTime));
                         isRewind = false;
                     }
                     string file = musicFiles.Dequeue();
@@ -218,13 +234,36 @@ namespace TimerApp
                         //подписываемся на событие когда трек кончился/остановился
                         waveOut.PlaybackStopped += OnPlaybackStopped;
 
-                        while (!token.IsCancellationRequested) //проверяем состояние флага
+                        while (!token.IsCancellationRequested | isPaused | isRewind) //проверяем состояние флага
                         {
-                            Thread.Sleep(100);
-                        }
-                        if (token.IsCancellationRequested)
-                        {
-                            return;
+                            Thread.Sleep(100); //проверка с интервалом
+                            if (token.IsCancellationRequested)
+                            {
+                                return;
+                            }
+                            if (isPaused && waveOut?.PlaybackState == PlaybackState.Playing)
+                            {
+                                while (!isPlaying)
+                                {
+                                    waveOut?.Pause();
+                                    Thread.Sleep(100);
+                                    
+                                    if (isPlaying)
+                                    {
+                                        waveOut?.Play();
+                                        break;
+                                    }
+                                    else if (token.IsCancellationRequested)
+                                    {
+                                        return;
+                                    }
+                                }
+                            }
+                            if (isRewind)
+                            {
+                                waveOut?.Stop();
+                                break;
+                            }
                         }
                     }
                 }
@@ -236,11 +275,11 @@ namespace TimerApp
 
         }
 
-        private void UpdatePlayListLabel(TimeSpan playListTime)
+        private void UpdatePlayListTimeLabel(TimeSpan playListTime)
         {
             if (plListTimeLab.InvokeRequired)
             {
-                plListTimeLab.Invoke(new Action(() => UpdatePlayListLabel(playListTime)));
+                plListTimeLab.Invoke(new Action(() => UpdatePlayListTimeLabel(playListTime)));
 
             }
             else
@@ -269,21 +308,7 @@ namespace TimerApp
             }
         }
 
-
-        private void pauseBut_Click(object sender, EventArgs e)
-        {
-            playBut.Enabled = true;
-            rewindBut.Enabled = false;
-            pauseBut.Enabled = false;
-            if (waveOut != null && waveOut.PlaybackState == PlaybackState.Playing)
-            {
-                waveOut.Pause();
-                fullTimer.Stop();
-                trackTimer.Stop();
-                isPaused = true;
-                isPlaying = false;
-            }
-        }
+       
         private void NextTrack()
         {
 
@@ -311,26 +336,13 @@ namespace TimerApp
             waveOut.PlaybackStopped -= OnPlaybackStopped;
             NextTrack();
         }
-        private bool isRewind;
-        private void rewindBut_Click(object sender, EventArgs e)
-        {
-            
-            if (isPlaying)
-            {
-                isRewind = true;
-                cancellationTokenSource.Cancel();
-                waveOut.PlaybackStopped -= OnPlaybackStopped;
-                waveOut.Stop();
-                NextTrack();
-
-            }
-        }
+        
     }
 }
 
 
-
-
+//-----------------------------------------
+//библиотека winmm.dll
 
 /*
 namespace TimerApp

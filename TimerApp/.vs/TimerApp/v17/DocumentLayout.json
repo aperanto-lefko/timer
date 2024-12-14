@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|E:\\ITMO\\Windows C#\\Timer\\TimerApp\\timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\musicform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|solutionrelative:timerapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ADA362B2-3967-4DA4-BDFB-06B01E00E64B}|TimerApp\\TimerApp.csproj|e:\\itmo\\windows c#\\timer\\timerapp\\timerapp\\startform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -65,8 +65,12 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AddTraineeForm.cs",
               "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\AddTraineeForm.cs",
               "RelativeDocumentMoniker": "TimerApp\\AddTraineeForm.cs",
@@ -79,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\Program.cs",
               "RelativeDocumentMoniker": "TimerApp\\Program.cs",
@@ -87,7 +91,8 @@
               "RelativeToolTip": "TimerApp\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T21:37:12.473Z"
+              "WhenOpened": "2024-12-13T21:37:12.473Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -97,7 +102,7 @@
               "RelativeDocumentMoniker": "TimerApp\\MusicForm.cs",
               "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\MusicForm.cs",
               "RelativeToolTip": "TimerApp\\MusicForm.cs",
-              "ViewState": "AgIAAP0AAAAAAAAAAAAQwCwBAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAAACIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-11T21:30:42.897Z",
               "EditorCaption": ""
@@ -117,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "BaseForm.cs",
               "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\BaseForm.cs",
               "RelativeDocumentMoniker": "TimerApp\\BaseForm.cs",
@@ -142,19 +147,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MusicForm.cs [Design]",
               "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\MusicForm.cs",
               "RelativeDocumentMoniker": "TimerApp\\MusicForm.cs",
               "ToolTip": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\MusicForm.cs [Design]",
               "RelativeToolTip": "TimerApp\\MusicForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T11:02:46.825Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-14T11:02:46.825Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AddTraineeForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "DocumentMoniker": "E:\\ITMO\\Windows C#\\Timer\\TimerApp\\TimerApp\\AddTraineeForm.cs",
               "RelativeDocumentMoniker": "TimerApp\\AddTraineeForm.cs",
@@ -162,10 +166,6 @@
               "RelativeToolTip": "TimerApp\\AddTraineeForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-14T10:48:36.953Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Document",
