@@ -12,11 +12,7 @@ namespace TimerApp
 {
     public partial class BaseForm : Form
     {
-        public BaseForm()
-        {
-            InitializeComponent();
-        }
-
+        
         protected void DrawPictureBoxImage(PaintEventArgs e, byte[] imageData, PictureBox pictureBox) //назначение картинок для полей
         {
             using (MemoryStream ms = new MemoryStream(imageData))

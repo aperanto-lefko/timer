@@ -213,6 +213,16 @@ namespace TimerApp.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
+        internal static byte[] rewind {
+            get {
+                object obj = ResourceManager.GetObject("rewind", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
         internal static byte[] settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);

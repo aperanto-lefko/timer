@@ -61,6 +61,7 @@
             panel6 = new Panel();
             cycleBox = new TextBox();
             cycle_label = new Label();
+            closeBut = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             AddTraineeLabel = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -114,6 +115,7 @@
             tableLayoutPanel1.Controls.Add(butMinusCycle, 1, 4);
             tableLayoutPanel1.Controls.Add(butPlusCycle, 3, 4);
             tableLayoutPanel1.Controls.Add(panel6, 2, 4);
+            tableLayoutPanel1.Controls.Add(closeBut, 0, 5);
             tableLayoutPanel1.Location = new Point(0, 113);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
@@ -147,6 +149,7 @@
             timeRun_up_box.Size = new Size(77, 30);
             timeRun_up_box.TabIndex = 2;
             toolTip1.SetToolTip(timeRun_up_box, "Время для подготовки, мин");
+            timeRun_up_box.Click += timeRun_up_box_Click;
             timeRun_up_box.KeyPress += timeRun_up_box_KeyPress;
             // 
             // run_up_label
@@ -202,8 +205,8 @@
             butConfirm.Location = new Point(252, 403);
             butConfirm.Name = "butConfirm";
             butConfirm.Size = new Size(79, 80);
-            butConfirm.TabIndex = 16;
-            toolTip1.SetToolTip(butConfirm, "Подтвердить ввод");
+            butConfirm.TabIndex = 17;
+            toolTip1.SetToolTip(butConfirm, "Подтвердить");
             butConfirm.UseVisualStyleBackColor = false;
             butConfirm.Click += butConfirm_Click;
             butConfirm.Paint += butConfirm_Paint;
@@ -238,6 +241,7 @@
             work_box.Size = new Size(77, 30);
             work_box.TabIndex = 5;
             toolTip1.SetToolTip(work_box, "Время для работы, мин");
+            work_box.Click += work_box_Click;
             work_box.KeyPress += work_box_KeyPress;
             // 
             // work_label
@@ -304,6 +308,7 @@
             relaxBox.Size = new Size(77, 30);
             relaxBox.TabIndex = 8;
             toolTip1.SetToolTip(relaxBox, "Время для отдыха, мин");
+            relaxBox.Click += relaxBox_Click;
             relaxBox.KeyPress += relaxBox_KeyPress;
             // 
             // relax_label
@@ -394,6 +399,7 @@
             restBox.Size = new Size(77, 30);
             restBox.TabIndex = 11;
             toolTip1.SetToolTip(restBox, "Время для заминки, мин");
+            restBox.Click += restBox_Click;
             // 
             // rest_label
             // 
@@ -459,6 +465,7 @@
             cycleBox.Size = new Size(77, 30);
             cycleBox.TabIndex = 14;
             toolTip1.SetToolTip(cycleBox, "Количество циклов \"работа/отдых\"");
+            cycleBox.Click += cycleBox_Click;
             // 
             // cycle_label
             // 
@@ -469,6 +476,19 @@
             cycle_label.Size = new Size(77, 42);
             cycle_label.TabIndex = 0;
             cycle_label.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // closeBut
+            // 
+            closeBut.BackColor = Color.AntiqueWhite;
+            closeBut.Dock = DockStyle.Fill;
+            closeBut.Location = new Point(3, 403);
+            closeBut.Name = "closeBut";
+            closeBut.Size = new Size(77, 80);
+            closeBut.TabIndex = 16;
+            toolTip1.SetToolTip(closeBut, "Отменить");
+            closeBut.UseVisualStyleBackColor = false;
+            closeBut.Click += closeBut_Click;
+            closeBut.Paint += closeBut_Paint;
             // 
             // tableLayoutPanel2
             // 
@@ -492,7 +512,7 @@
             AddTraineeLabel.Name = "AddTraineeLabel";
             AddTraineeLabel.Size = new Size(328, 27);
             AddTraineeLabel.TabIndex = 0;
-            AddTraineeLabel.Text = "Добавить тренировку";
+            AddTraineeLabel.Text = "Составить тренировку";
             AddTraineeLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
@@ -632,5 +652,6 @@
         private TextBox cycleBox;
         private Label cycle_label;
         private ToolTip toolTip1;
+        private Button closeBut;
     }
 }

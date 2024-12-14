@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace TimerApp
 {
-    public partial class RadioForm : BaseForm
+    public partial class RadioForm :  BaseForm
     {
         public RadioForm()
         {
@@ -55,5 +55,6 @@ namespace TimerApp
         {
             this.Close();
         }
-    }
+
+         }
 }

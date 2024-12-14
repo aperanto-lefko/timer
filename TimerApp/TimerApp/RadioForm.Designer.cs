@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tableLayoutPanel1 = new TableLayoutPanel();
             monteCarloBut = new RadioButton();
             europaPlBut = new RadioButton();
@@ -36,6 +37,7 @@
             yandexBut = new RadioButton();
             confirmRadioBut = new Button();
             closeRadioBut = new Button();
+            toolTip1 = new ToolTip(components);
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel1.Size = new Size(238, 240);
+            tableLayoutPanel1.Size = new Size(260, 240);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // monteCarloBut
@@ -69,7 +71,7 @@
             monteCarloBut.Dock = DockStyle.Fill;
             monteCarloBut.Location = new Point(3, 3);
             monteCarloBut.Name = "monteCarloBut";
-            monteCarloBut.Size = new Size(187, 34);
+            monteCarloBut.Size = new Size(209, 34);
             monteCarloBut.TabIndex = 0;
             monteCarloBut.TabStop = true;
             monteCarloBut.Text = "Радио \"Monte Carlo\"";
@@ -81,7 +83,7 @@
             europaPlBut.Dock = DockStyle.Fill;
             europaPlBut.Location = new Point(3, 43);
             europaPlBut.Name = "europaPlBut";
-            europaPlBut.Size = new Size(187, 34);
+            europaPlBut.Size = new Size(209, 34);
             europaPlBut.TabIndex = 1;
             europaPlBut.TabStop = true;
             europaPlBut.Text = "Радио \"Europa Plus\"";
@@ -93,7 +95,7 @@
             energyBut.Dock = DockStyle.Fill;
             energyBut.Location = new Point(3, 83);
             energyBut.Name = "energyBut";
-            energyBut.Size = new Size(187, 34);
+            energyBut.Size = new Size(209, 34);
             energyBut.TabIndex = 2;
             energyBut.TabStop = true;
             energyBut.Text = "Радио \"Energy\"";
@@ -105,7 +107,7 @@
             hitFmBut.Dock = DockStyle.Fill;
             hitFmBut.Location = new Point(3, 123);
             hitFmBut.Name = "hitFmBut";
-            hitFmBut.Size = new Size(187, 34);
+            hitFmBut.Size = new Size(209, 34);
             hitFmBut.TabIndex = 3;
             hitFmBut.TabStop = true;
             hitFmBut.Text = "Радио \"Хит FM\"";
@@ -117,7 +119,7 @@
             yandexBut.Dock = DockStyle.Fill;
             yandexBut.Location = new Point(3, 163);
             yandexBut.Name = "yandexBut";
-            yandexBut.Size = new Size(187, 34);
+            yandexBut.Size = new Size(209, 34);
             yandexBut.TabIndex = 4;
             yandexBut.TabStop = true;
             yandexBut.Text = "Yandex Music";
@@ -127,10 +129,11 @@
             // 
             confirmRadioBut.BackColor = Color.AntiqueWhite;
             confirmRadioBut.Dock = DockStyle.Fill;
-            confirmRadioBut.Location = new Point(196, 203);
+            confirmRadioBut.Location = new Point(218, 203);
             confirmRadioBut.Name = "confirmRadioBut";
             confirmRadioBut.Size = new Size(39, 34);
-            confirmRadioBut.TabIndex = 5;
+            confirmRadioBut.TabIndex = 6;
+            toolTip1.SetToolTip(confirmRadioBut, "Подтвердить выбор");
             confirmRadioBut.UseVisualStyleBackColor = false;
             confirmRadioBut.Click += confirmRadioBut_Click;
             confirmRadioBut.Paint += confirmRadioBut_Paint;
@@ -139,10 +142,11 @@
             // 
             closeRadioBut.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             closeRadioBut.BackColor = Color.AntiqueWhite;
-            closeRadioBut.Location = new Point(150, 203);
+            closeRadioBut.Location = new Point(172, 203);
             closeRadioBut.Name = "closeRadioBut";
             closeRadioBut.Size = new Size(40, 34);
-            closeRadioBut.TabIndex = 6;
+            closeRadioBut.TabIndex = 5;
+            toolTip1.SetToolTip(closeRadioBut, "Закрыть");
             closeRadioBut.UseVisualStyleBackColor = false;
             closeRadioBut.Click += closeRadioBut_Click;
             closeRadioBut.Paint += closeRadioBut_Paint;
@@ -152,7 +156,7 @@
             AutoScaleDimensions = new SizeF(10F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
-            ClientSize = new Size(250, 240);
+            ClientSize = new Size(270, 239);
             ControlBox = false;
             Controls.Add(tableLayoutPanel1);
             Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
@@ -177,5 +181,6 @@
         private RadioButton yandexBut;
         private Button confirmRadioBut;
         private Button closeRadioBut;
+        private ToolTip toolTip1;
     }
 }

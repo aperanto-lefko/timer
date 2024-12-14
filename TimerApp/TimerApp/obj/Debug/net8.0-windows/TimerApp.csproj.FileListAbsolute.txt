@@ -39,3 +39,13 @@ E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\ref\TimerApp
 E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.UserControl_Run_up.resources
 E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.RadioForm.resources
 E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.BaseForm.resources
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\bin\Debug\net8.0-windows\NAudio.dll
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\bin\Debug\net8.0-windows\NAudio.Asio.dll
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\bin\Debug\net8.0-windows\NAudio.Core.dll
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\bin\Debug\net8.0-windows\NAudio.Midi.dll
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\bin\Debug\net8.0-windows\NAudio.Wasapi.dll
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\bin\Debug\net8.0-windows\NAudio.WinForms.dll
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\bin\Debug\net8.0-windows\NAudio.WinMM.dll
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.csproj.AssemblyReference.cache
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.csproj.Up2Date
+E:\ITMO\Windows C#\Timer\TimerApp\TimerApp\obj\Debug\net8.0-windows\TimerApp.MusicForm.resources
