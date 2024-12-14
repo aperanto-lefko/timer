@@ -298,6 +298,7 @@ namespace TimerApp
                 cancellationTokenSource.Cancel();
                 isPlaying = false;
                 isPaused = false;
+                isRewind = false;
                 fullTimer.Stop();
                 trackTimer.Stop();
                 plListTimeLab.Text = ""; //обнуление меток с таймерами
