@@ -173,9 +173,9 @@ namespace TimerApp
             else if (isPaused) //если были на паузе
             {
 
-                waveOut?.Play();
                 isPaused = false;
                 isPlaying = true;
+
                 fullTimer.Start();
                 trackTimer.Start();
             }
